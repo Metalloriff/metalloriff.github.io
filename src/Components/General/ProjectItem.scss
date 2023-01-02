@@ -1,0 +1,273 @@
+﻿@import "../../Variables";
+
+.ProjectItem {
+	margin: 120px 10vw;
+	padding: 40px;
+	padding-bottom: 10px;
+
+	position: relative;
+
+	//backdrop-filter: blur(7px);
+	//background-color: rgba(black, 0.1);
+
+	width: 1000px;
+
+	--image-width: 575px;
+	--image-height: 300px;
+
+	@media screen and (min-width: 2500px) {
+		margin: 250px 20vw;
+	}
+
+	@media screen and (min-width: 3000px) {
+		margin: 250px 25vw;
+	}
+
+	h2 {
+		margin-top: 0;
+	}
+
+	> .TypeLabelContainer {
+		position: absolute;
+		top: -10px;
+		margin: 0 20px;
+
+		> .NsfwTag {
+			margin: 0 20px;
+
+			font-weight: bolder;
+			color: var(--cf-red);
+			border: 2px solid currentColor;
+
+			padding: 3px 10px;
+			font-size: 0.8em;
+
+			border-radius: 100px;
+
+			cursor: not-allowed;
+
+			.TooltipContainer {
+				color: white;
+
+				direction: ltr;
+			}
+		}
+	}
+
+	.ImageCarousel {
+		display: flex;
+		justify-content: center;
+
+		margin-top: 5px;
+		width: var(--image-width);
+
+		width: max-content;
+		border-radius: 100px;
+		padding: 5px;
+
+		.ImgBlip {
+			width: 12px;
+			height: 12px;
+
+			margin: 10px;
+
+			border-radius: 100%;
+
+			background-color: rgba(black, 0.25);
+
+			transition: background-color $ft, transform $ft;
+			cursor: pointer;
+
+			&:hover {
+				background-color: var(--txt-color);
+
+				transform: scale(1.2);
+			}
+
+			&.Selected {
+				background-color: $primaryColor;
+
+				transform: scale(1.5);
+			}
+		}
+	}
+
+	.ImagesSection {
+		margin-right: 50px;
+	}
+
+	.ImageContainer {
+		box-sizing: border-box;
+
+		overflow: hidden;
+		position: relative;
+
+		flex-shrink: 0;
+		width: var(--image-width);
+		height: var(--image-height);
+
+		cursor: pointer;
+		box-shadow: var(--cf-shadow1);
+		border-radius: 15px;
+
+		img {
+			transition: transform $ft;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			width: 100%;
+			height: 100%;
+
+			object-position: center;
+			object-fit: cover;
+
+			border-radius: 15px;
+
+			&.Transitioning {
+				transform-origin: left;
+
+				animation-name: ImageTransition;
+				animation-duration: 300ms;
+				animation-timing-function: steps(20);
+			}
+		}
+
+		&:hover img {
+			transform: translate(-50%, -50%) scale(1.025);
+		}
+	}
+
+	.BodySection {
+		display: flex;
+		flex-direction: column;
+
+		.Buttons {
+			margin-top: auto;
+			margin-bottom: 40px;
+
+			display: flex;
+			flex-direction: column;
+
+			@media screen and (max-width: 700px) {
+				align-items: center;
+			}
+
+			> a {
+				display: block;
+				cursor: pointer;
+
+				margin-top: 10px;
+				text-align: center;
+
+				font-size: 0.9em;
+
+				border: 2px solid currentColor;
+				padding: 5px 20px;
+
+				width: max-content;
+
+				border-radius: 100px;
+
+				transition: color $ft;
+
+				&:hover {
+					color: var(--txt-color);
+				}
+			}
+
+			.Tooltip {
+				color: white;
+
+				max-width: 200px;
+				width: max-content;
+				white-space: pre-line;
+			}
+		}
+	}
+
+	.Description {
+		max-height: 90px;
+		overflow: hidden;
+
+		&.Large {
+			mask-image: linear-gradient(0deg, transparent 10%, white 50%);
+		}
+	}
+
+	&:nth-child(odd) {
+		direction: rtl;
+
+		margin-left: auto;
+
+		.BodySection {
+			margin-right: auto;
+		}
+
+		.ImagesSection {
+			margin-left: 50px;
+			margin-right: 0;
+		}
+
+		.ImageCarousel {
+			flex-direction: row-reverse;
+		}
+
+		.BodySection {
+			direction: ltr;
+		}
+	}
+}
+
+@keyframes ImageTransition {
+	to {
+		transform: rotateZ(90deg);
+
+		opacity: 0;
+	}
+}
+
+#root .App.Mobile .ProjectItem {
+	--image-width: 90vw;
+	--image-height: 47vw;
+
+	margin: 150px auto;
+	padding: 0;
+
+	width: 90vw;
+
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	.ImagesSection {
+		margin: 0;
+	}
+
+	.BodySection {
+		margin: 20px auto;
+
+		width: 70vw;
+	}
+}
+
+.ReadMoreModal {
+	border-top: 7px solid $secondaryColor;
+	padding: 20px;
+
+	background-color: $primaryBG;
+	border-radius: 0;
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $secondaryColor;
+	}
+
+	h1 {
+		margin-top: 0;
+
+		color: $secondaryColor;
+	}
+}

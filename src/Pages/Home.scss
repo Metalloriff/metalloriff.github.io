@@ -1,0 +1,401 @@
+@import "../Variables.scss";
+
+// I don't think this actually does anything
+html,
+body {
+	scroll-behavior: smooth;
+}
+
+.HomePage {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+
+	.Close {
+		cursor: pointer;
+
+		&:hover {
+			filter: brightness(1.1);
+		}
+	}
+
+	> .CrescentContainer {
+		position: absolute;
+		top: 5vw;
+		right: 10vw;
+
+		width: 150px;
+		height: 150px;
+
+		border-radius: 50%;
+
+		background-color: var(--primary-bg);
+		z-index: -10;
+
+		> .Crescent {
+			width: 100%;
+			height: 100%;
+
+			border-radius: 50%;
+
+			box-shadow: 20px -8px var(--txt-color);
+			filter: drop-shadow(0 0 7px var(--txt-color));
+
+			animation: crescent 4s infinite steps(10);
+
+			@keyframes crescent {
+				50% {
+					filter: drop-shadow(0 0 15px var(--txt-color));
+				}
+			}
+		}
+	}
+
+	> .Clouds {
+		position: absolute;
+		overflow: hidden;
+
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
+		color: $tertiaryBG;
+		z-index: -10;
+
+		> .CloudWrapper {
+			&:nth-child(odd) > .Cloud {
+				animation-direction: reverse;
+			}
+		}
+
+		.Cloud {
+			display: block;
+
+			animation-name: CloudAnim;
+			animation-duration: 20s;
+			animation-iteration-count: infinite;
+			animation-timing-function: steps(1500);
+
+			margin-top: 20vh;
+
+			@keyframes CloudAnim {
+				from {
+					transform: translateX(-100vw);
+				}
+
+				to {
+					transform: translateX(100vw);
+				}
+			}
+
+			> .Sec {
+				width: calc(var(--size) * 0.6px);
+				height: 45px;
+				border-radius: 200px;
+
+				background-color: currentColor;
+
+				box-shadow: 25px 25px 0 10px #232e38;
+
+				&:nth-child(even) {
+					margin-left: 50px;
+
+					filter: brightness(1.1);
+				}
+
+				animation-name: CloudSecAnim;
+				animation-iteration-count: infinite;
+				animation-timing-function: steps(150);
+
+				@keyframes CloudSecAnim {
+					50% {
+						transform: translate(25%, -40%);
+					}
+				}
+
+				@keyframes CloudPopAnim {
+					70% {
+						transform: scale(5);
+					}
+
+					100% {
+						transform: scale(0);
+						opacity: 0;
+					}
+				}
+			}
+		}
+	}
+
+	> .MainSection {
+		min-height: 90vh;
+		box-sizing: border-box;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		padding: 50px 100px;
+
+		h1 b {
+			color: $primaryColor;
+		}
+	}
+
+	.Header {
+		width: 100vw;
+
+		margin-top: 5vh;
+		margin-bottom: 10vh;
+
+		.LogoContainer {
+			width: 80px;
+			height: 80px;
+
+			border-radius: 100%;
+			margin-right: 12px;
+		}
+
+		.Logo {
+			width: 80px;
+			height: 80px;
+
+			border-radius: 50%;
+			margin-right: 12px;
+
+			pointer-events: none;
+		}
+
+		.Title {
+			> span {
+				color: $primaryColor;
+			}
+		}
+
+		.HeaderButtons {
+			gap: 30px;
+			font-size: 0.65em;
+			margin-top: 15px;
+
+			> .Button {
+				> h3 {
+					margin: 4px;
+				}
+
+				cursor: pointer;
+				transition: filter $ft;
+
+				color: var(--txt-color);
+
+				&:hover {
+					filter: brightness(1.25);
+				}
+			}
+		}
+	}
+
+	.HeadIntro {
+		width: 700px;
+		max-width: 70vw;
+
+		background: var(--secondary-bg);
+		padding: 30px;
+		padding-left: 15px;
+
+		overflow: hidden;
+		border-radius: 15px;
+
+		box-shadow: 0 0 12px 3px rgba(black, 0.1);
+
+		h1 b {
+			color: var(--cf-pink);
+
+			> span,
+			a {
+				color: var(--cf-purple);
+			}
+
+			> b {
+				color: var(--txt-color);
+			}
+
+			> i {
+				color: var(--txt-color);
+				opacity: 0.5;
+			}
+
+			a {
+				position: relative;
+				display: inline-block;
+
+				&:hover:after {
+					width: 100%;
+				}
+
+				&::after {
+					content: "";
+
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;
+
+					width: 0;
+					transition: width $ft;
+
+					border-bottom: 2px solid currentColor;
+				}
+			}
+		}
+
+		counter-reset: line-num;
+
+		> h1 {
+			overflow: hidden;
+			width: max-content;
+
+			white-space: nowrap;
+			font-family: monospace;
+			font-size: 2em;
+
+			animation-name: TypingAnimation;
+			animation-fill-mode: forwards;
+			animation-delay: 1s;
+
+			position: relative;
+
+			counter-increment: line-num;
+
+			&::before {
+				content: counter(line-num);
+				margin-right: 15px;
+
+				display: inline-block;
+				width: 2ch;
+
+				opacity: 0.3;
+				font-weight: lighter;
+			}
+		}
+
+		.Caret {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+
+			border-right: 4px solid $primaryColor;
+
+			width: 5px;
+			background-color: $secondaryBG;
+
+			animation-name: CaretBlink;
+			animation-duration: 750ms;
+			animation-iteration-count: infinite;
+			animation-timing-function: steps(1, end);
+		}
+	}
+
+	.Projects {
+		> h1 {
+			margin-top: 200px;
+
+			text-align: center;
+			color: $primaryColor;
+		}
+
+		> .Commissions {
+			margin: 0 20vw;
+
+			> .CommissionItem {
+				margin: 70px 0;
+
+				text-align: center;
+				// &:nth-child(even) {
+				// 	text-align: right;
+				// }
+
+				> a {
+					color: $secondaryColor;
+				}
+			}
+		}
+	}
+}
+
+@keyframes TypingAnimation {
+	from {
+		width: 0;
+		padding-right: 10px;
+	}
+
+	to {
+		width: var(--target-size);
+		padding-right: 10px;
+	}
+}
+
+@keyframes CaretBlink {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+}
+
+#root .Mobile .HomePage {
+	> .MainSection {
+		padding: 20px 0;
+	}
+
+	.HeadIntro {
+		> h1 {
+			font-size: 1.2em;
+		}
+	}
+}
+
+.TitleBarMockup {
+	background-color: $tertiaryBG;
+
+	margin: -30px;
+	margin-left: -15px;
+	margin-bottom: 20px;
+	padding: 10px 15px;
+
+	> .Title {
+		font-weight: bolder;
+		font-size: 1.1em;
+
+		filter: brightness(1.15);
+	}
+
+	> .Buttons {
+		margin-left: auto;
+		gap: 10px;
+
+		> .Button {
+			width: 15px;
+			height: 15px;
+
+			border-radius: 50%;
+
+			&.Minimize {
+				background: var(--cf-green);
+			}
+
+			&.Restore {
+				background: var(--cf-yellow);
+			}
+
+			&.Close {
+				background: var(--cf-red);
+			}
+		}
+	}
+}

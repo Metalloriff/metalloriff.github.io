@@ -1,0 +1,67 @@
+@import "../Variables.scss";
+
+.DonatePage {
+	width: 100vw;
+
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	text-align: center;
+
+	> .Contents {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		width: 600px;
+		max-width: 80vw;
+	}
+
+	.Links {
+		gap: 20px;
+
+		font-size: 1.2em;
+	}
+
+	.QrCode {
+		> canvas {
+			border-radius: 30px;
+		}
+	}
+
+	.Address {
+		gap: 5px;
+
+		cursor: pointer;
+
+		> span {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: pre;
+		}
+
+		> svg {
+			opacity: 0;
+			transition: opacity $ft;
+		}
+
+		&:hover > svg {
+			opacity: 1;
+		}
+	}
+
+	.Wallet {
+		margin-bottom: 60px;
+		max-width: 70vw;
+
+		background: var(--secondary-bg);
+		padding: 30px;
+		padding-left: 15px;
+
+		overflow: hidden;
+		border-radius: 15px;
+
+		box-shadow: 0 0 12px 3px rgba(black, 0.1);
+	}
+}

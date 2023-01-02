@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient x1="0.09848255" y1="0.17172457" x2="0.7957399" y2="0.8866355" id="gradient_1">
+			<stop offset="0" stop-color="#7BB1BD" />
+			<stop offset="1" stop-color="#BD7BA2" />
+		</linearGradient>
+	</defs>
+	<g id="Icon" clip-path="url(#clip_1)">
+		<path d="M0 0L15 0C15 0 15.3508 10.9544 3.00001 18.5" transform="translate(34 23)" id="Fu" fill="none"
+			fill-rule="evenodd" stroke="#DEDEDE" stroke-width="4" />
+		<g id="Ri" transform="translate(17 21)">
+			<path d="M7 0C7 0 7.06332 12.4911 7 14C6.93669 15.5089 6.71771 18.376 0 20.5" transform="translate(1.5 0)"
+				id="New-shape" fill="none" fill-rule="evenodd" stroke="#DEDEDE" stroke-width="4" />
+			<path d="M0 0L0 10" transform="translate(0 2)" id="Line" fill="none" fill-rule="evenodd" stroke="#DEDEDE"
+				stroke-width="4" stroke-linecap="square" />
+		</g>
+		<path d="M0 0L46 0L46 46L0 46L0 0Z" transform="translate(9 9)" id="Rectangle" fill="url(#gradient_1)"
+			style="mix-blend-mode: darken;" fill-rule="evenodd" stroke="none" />
+	</g>
+</svg>

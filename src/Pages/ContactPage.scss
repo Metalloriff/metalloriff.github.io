@@ -1,0 +1,136 @@
+@import "../Variables.scss";
+
+.ContactPage {
+	width: 100vw;
+	min-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+
+	> .Contents {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		width: 600px;
+		max-width: 80vw;
+	}
+
+	.Window {
+		margin: 60px 0;
+		width: 500px;
+		max-width: 70vw;
+
+		background: var(--secondary-bg);
+		padding: 30px 15px;
+
+		overflow: hidden;
+		border-radius: 15px;
+
+		box-shadow: 0 0 12px 3px rgba(black, 0.1);
+
+		position: relative;
+
+		> .TitleBarMockup {
+			margin-right: -15px;
+
+			.Close {
+				cursor: pointer;
+
+				&:hover {
+					filter: brightness(1.1);
+				}
+			}
+		}
+	}
+
+	.DropdownContainer {
+		width: 100%;
+
+		background: var(--primary-bg);
+		border-radius: 7px;
+
+		position: relative;
+
+		.SelectedText,
+		.DropdownItem {
+			padding: 8px 17px;
+
+			cursor: pointer;
+		}
+
+		.DropdownItem {
+			&:hover {
+				background: rgba(black, 0.2);
+			}
+		}
+
+		.Dropdown {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+
+			background: var(--primary-bg);
+			border-radius: 7px;
+			overflow: hidden;
+		}
+	}
+
+	input[type="text"],
+	textarea {
+		border: none;
+		outline: none;
+
+		background: rgba(black, 0.2);
+		color: var(--txt-color);
+
+		padding: 8px 17px;
+		border-radius: 7px;
+
+		width: 100%;
+		box-sizing: border-box;
+
+		&::placeholder {
+			color: var(--txt-color);
+			opacity: 0.75;
+		}
+
+		caret-color: var(--primary-color);
+		&::selection {
+			background: var(--primary-color);
+		}
+	}
+
+	textarea {
+		padding: 17px;
+		resize: vertical;
+		min-height: 200px;
+	}
+
+	.MainButton {
+		margin-top: 20px;
+		margin-bottom: -10px;
+
+		background: var(--primary-color);
+		color: white;
+
+		border: none;
+		border-radius: 20px;
+
+		padding: 8px 17px;
+
+		cursor: pointer;
+		text-transform: uppercase;
+		letter-spacing: 0.25ch;
+
+		gap: 5px;
+
+		&:hover {
+			filter: brightness(1.1);
+		}
+	}
+}
