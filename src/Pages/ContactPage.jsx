@@ -1,6 +1,7 @@
 import React from "react";
 import { Send } from "react-feather";
 import LinkWrapper from "../Components/LinkWrapper";
+import { copyToClipboard } from "../Components/Modals";
 import "./ContactPage.scss";
 
 function Dropdown({ children = [], callback }) {
@@ -65,10 +66,12 @@ export default function ContactPage() {
 	return (
 		<div className="ContactPage">
 			<div className="Contents">
-				<Window title="Discord">
-					<LinkWrapper className="MainButton FlexCenter" href="https://discord.gg/Dfb96RJst6">Join Discord Server</LinkWrapper>
+				<Window title="Telegram">
+					You can find me on Telegram, <a href="https://telegram.me/metalloriff">telegram.me/metalloriff</a>
+				</Window>
 
-					<LinkWrapper className="MainButton FlexCenter" href="discord.com/users/264163473179672576">View Discord Profile</LinkWrapper>
+				<Window title="Discord">
+					You can join my Discord server with invite link <a href="https://discord.gg/Dfb96RJst6">Dfb96RJst6</a>, visit my profile directly <a href="https://discord.com/users/264163473179672576">here</a>, or copy my Discord username and tag <a href="#" onClick={() => copyToClipboard("Metalloriff#2891")}>Metalloriff#2891</a>.
 				</Window>
 
 				<Window title="Twitter">

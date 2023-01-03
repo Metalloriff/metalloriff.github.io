@@ -12,71 +12,6 @@
 	],
 	"projects": [
 		{
-			"name": "Discord RPC Client",
-			"type": "Desktop Application (OSS)",
-			"description": "A simple and user-friendly interface for creating custom Discord Rich Presence.",
-			"buttons": [
-				{
-					"title": "Download",
-					"link": "https://github.com/Metalloriff/discord-rpc-client/releases"
-				},
-				{
-					"title": "View Source Code",
-					"link": "https://github.com/Metalloriff/discord-rpc-client"
-				}
-			],
-			"images": [
-				"https://i.imgur.com/OayiPvp.png",
-				"https://i.imgur.com/T1vxbLX.png",
-				"https://i.imgur.com/KDZHKxq.png",
-				"https://i.imgur.com/cnoU2Aj.png"
-			]
-		},
-		{
-			"name": "Cirlos V2 (Alpha)",
-			"type": "Website/Application",
-			"description": "A simpler way to connect with friend and family, with powerful ways to personalize your experience.",
-			"buttons": [
-				{
-					"title": "Visit Website",
-					"link": "https://v2.cirlos.net"
-				},
-				{
-					"title": "View Roadmap",
-					"link": "https://trello.com/b/7tv4xtyK/roadmap"
-				}
-			],
-			"images": [
-				"https://i.imgur.com/5Xwk2so.png",
-				"https://i.imgur.com/xfdCD8y.png",
-				"https://i.imgur.com/8LCiBZN.png",
-				"https://i.imgur.com/HG0dD6J.png",
-				"https://i.imgur.com/fPIX997.png"
-			]
-		},
-		{
-			"name": "Hanashi",
-			"type": "Website",
-			"description": "A modernized way to role play.<br/>Share your adventures with the world.",
-			"buttons": [
-				{
-					"title": "Visit Website",
-					"link": "https://hanashi.club"
-				},
-				{
-					"title": "View Roadmap",
-					"link": "https://trello.com/b/ZTfBwiqe/roadmap"
-				}
-			],
-			"images": [
-				"https://i.imgur.com/kV5eKam.png",
-				"https://i.imgur.com/XX9Vnrq.png",
-				"https://i.imgur.com/ZPw4oKJ.jpg",
-				"https://i.imgur.com/OLDzpRk.png",
-				"https://i.imgur.com/8fBQZ9Q.png"
-			]
-		},
-		{
 			"name": "City Fog",
 			"type": "Color Palette/Theme",
 			"description": "A cyberpunk-esque color palette/theme, design to give a cold but lively feel.",
@@ -132,6 +67,49 @@
 			]
 		},
 		{
+			"name": "Discord RPC Client",
+			"type": "Desktop Application (OSS)",
+			"description": "A simple and user-friendly interface for creating custom Discord Rich Presence.",
+			"buttons": [
+				{
+					"title": "Download",
+					"link": "https://github.com/Metalloriff/discord-rpc-client/releases"
+				},
+				{
+					"title": "View Source Code",
+					"link": "https://github.com/Metalloriff/discord-rpc-client"
+				}
+			],
+			"images": [
+				"https://i.imgur.com/OayiPvp.png",
+				"https://i.imgur.com/T1vxbLX.png",
+				"https://i.imgur.com/KDZHKxq.png",
+				"https://i.imgur.com/cnoU2Aj.png"
+			]
+		},
+		{
+			"name": "Cirlos V2 (Alpha)",
+			"type": "Website/Application",
+			"description": "A simpler way to connect with friend and family, with powerful ways to personalize your experience.",
+			"buttons": [
+				{
+					"title": "Visit Website",
+					"link": "https://v2.cirlos.net"
+				},
+				{
+					"title": "View Roadmap",
+					"link": "https://trello.com/b/7tv4xtyK/roadmap"
+				}
+			],
+			"images": [
+				"https://i.imgur.com/5Xwk2so.png",
+				"https://i.imgur.com/xfdCD8y.png",
+				"https://i.imgur.com/8LCiBZN.png",
+				"https://i.imgur.com/HG0dD6J.png",
+				"https://i.imgur.com/fPIX997.png"
+			]
+		},
+		{
 			"name": "Requiem",
 			"type": "Website",
 			"description": "A simple nature soundboard, for relaxing, sleeping, or meditating.<br/><br/>More sounds will be added over time.",
@@ -149,75 +127,6 @@
 				"https://i.imgur.com/kLp6D0F.png",
 				"https://i.imgur.com/DBNfpZd.png",
 				"https://i.imgur.com/JPUCwXX.png"
-			]
-		},
-		{
-			"name": "Cirlos Legacy",
-			"type": "Website/Application",
-			"description": "A highly customizable chat platform built with ReactJS and Firebase, using minimal third-party packages.",
-			"buttons": [
-				{
-					"title": "Visit Website",
-					"link": "https://www.cirlos.net"
-				}
-			],
-			"images": [
-				"https://i.imgur.com/2Hje9Si.jpg",
-				"https://i.imgur.com/AKULdU3.jpg",
-				"https://i.imgur.com/AOXBwLn.jpg",
-				"https://i.imgur.com/tZOprzK.jpg",
-				"https://i.imgur.com/YhCvh4t.jpg",
-				"https://i.imgur.com/f6dM75u.jpg"
-			]
-		},
-		{
-			"name": "Project Tally",
-			"type": "Desktop Application (OSS)",
-			"description": "Measures the total file sizes and language percentages in your project.",
-			"buttons": [
-				{
-					"title": "Download",
-					"link": "https://github.com/Metalloriff/project-tally/releases/tag/1.0.0"
-				},
-				{
-					"title": "Source Code",
-					"link": "https://github.com/Metalloriff/project-tally/"
-				}
-			],
-			"images": [
-				"https://i.imgur.com/jk5jld8.png",
-				"https://i.imgur.com/WfJQE8V.png",
-				"https://i.imgur.com/lB2NkH3.png",
-				"https://i.imgur.com/IlceNdN.jpg",
-				"https://i.imgur.com/eLm5ZMt.png",
-				"https://i.imgur.com/BU7r435.png"
-			]
-		},
-		{
-			"name": "Auto Chaos",
-			"type": "Game - Mobile, Desktop",
-			"description": "Auto Chaos is a multiplayer, procedurally generated racing game.<br><br>You have 3 respawns, falling off of the map or getting stuck will cause you to respawn, if you run out of respawns, you will spectate the leading player, and the last player alive wins.<br><br>You can earn respawns via checkpoints during the race. Every track is infinite, and once you get far into the map, it begins to rain, increasing the difficulty, and eventually begins snowing, further increasing the difficulty.\n\nThis game is in alpha and was originally made for the PROCJAM game jam, but will be updated. Bugs may be present. If you have any ideas or discover any bugs, I will be more than happy to help, here are a few ways to contact me.",
-			"buttons": [
-				{
-					"title": "Get on Google Play",
-					"link": "https://play.google.com/store/apps/details?id=com.ShrimpPlugGames.AutoChaos"
-				},
-				{
-					"title": "GameJolt Page",
-					"link": "https://gamejolt.com/games/auto-chaos/449874"
-				},
-				{
-					"title": "itch.io Page",
-					"link": "https://shrimppluggames.itch.io/auto-chaos"
-				}
-			],
-			"images": [
-				"https://m.gjcdn.net/game-header/1900/449874-add4sppe-v4.webp",
-				"https://m.gjcdn.net/game-screenshot/900/6793442-kcpumqwd-v4.webp",
-				"https://m.gjcdn.net/game-screenshot/1000/6793441-ycun9t2s-v4.webp",
-				"https://m.gjcdn.net/game-screenshot/1000/6793445-rsxppkwg-v4.webp",
-				"https://m.gjcdn.net/game-screenshot/1000/6793444-j6wdgfvn-v4.webp",
-				"https://m.gjcdn.net/game-screenshot/1000/6793443-i36zszk2-v4.webp"
 			]
 		},
 		{
@@ -274,6 +183,71 @@
 			]
 		},
 		{
+			"name": "Auto Chaos",
+			"type": "Game - Mobile, Desktop",
+			"description": "Auto Chaos is a multiplayer, procedurally generated racing game.<br><br>You have 3 respawns, falling off of the map or getting stuck will cause you to respawn, if you run out of respawns, you will spectate the leading player, and the last player alive wins.<br><br>You can earn respawns via checkpoints during the race. Every track is infinite, and once you get far into the map, it begins to rain, increasing the difficulty, and eventually begins snowing, further increasing the difficulty.\n\nThis game is in alpha and was originally made for the PROCJAM game jam, but will be updated. Bugs may be present. If you have any ideas or discover any bugs, I will be more than happy to help, here are a few ways to contact me.",
+			"buttons": [
+				{
+					"title": "Get on Google Play",
+					"link": "https://play.google.com/store/apps/details?id=com.ShrimpPlugGames.AutoChaos"
+				},
+				{
+					"title": "GameJolt Page",
+					"link": "https://gamejolt.com/games/auto-chaos/449874"
+				},
+				{
+					"title": "itch.io Page",
+					"link": "https://shrimppluggames.itch.io/auto-chaos"
+				}
+			],
+			"images": [
+				"https://m.gjcdn.net/game-header/1900/449874-add4sppe-v4.webp",
+				"https://m.gjcdn.net/game-screenshot/900/6793442-kcpumqwd-v4.webp",
+				"https://m.gjcdn.net/game-screenshot/1000/6793441-ycun9t2s-v4.webp",
+				"https://m.gjcdn.net/game-screenshot/1000/6793445-rsxppkwg-v4.webp",
+				"https://m.gjcdn.net/game-screenshot/1000/6793444-j6wdgfvn-v4.webp",
+				"https://m.gjcdn.net/game-screenshot/1000/6793443-i36zszk2-v4.webp"
+			]
+		},
+		{
+			"name": "City Fog - VS Code",
+			"description": "City Fog is a low saturation, mid contrast, mid brightness, cyberpunk-esque theme; designed to give a cold but lively feel.<br><br>City Fog has low syntax highlighting.<br>This is intended for those who don't like overly-highlighted syntax.",
+			"buttons": [
+				{
+					"title": "Install Theme",
+					"link": "https://marketplace.visualstudio.com/items?itemName=metalloriff.city-fog"
+				},
+				{
+					"title": "GitHub Repo",
+					"link": "https://github.com/Metalloriff/city-fog-vscode"
+				}
+			],
+			"images": [
+				"https://i.imgur.com/1pNlq45.jpg",
+				"https://i.imgur.com/sKiCKOB.jpg",
+				"https://i.imgur.com/DtfRymA.png"
+			]
+		},
+		{
+			"name": "City Fog, Dawn - VS Code",
+			"description": "A light mode version of the <a href=\"https://marketplace.visualstudio.com/items?itemName=metalloriff.city-fog\">City Fog VS Code theme</a>.",
+			"buttons": [
+				{
+					"title": "Install Theme",
+					"link": "https://marketplace.visualstudio.com/items?itemName=metalloriff.city-fog-dawn"
+				},
+				{
+					"title": "GitHub Repo",
+					"link": "https://github.com/Metalloriff/city-fog-dawn-vscode"
+				}
+			],
+			"images": [
+				"https://i.imgur.com/VEbzqRR.png",
+				"https://i.imgur.com/Ib9JjKI.png",
+				"https://i.imgur.com/Njaoak6.png"
+			]
+		},
+		{
 			"name": "Ignis Launcher",
 			"type": "Desktop Application (OSS)",
 			"description": "A simple launcher file launcher and command handler made with React and Electron.",
@@ -296,25 +270,67 @@
 			]
 		},
 		{
-			"name": "ReGuilded",
-			"type": "Contribution",
-			"description": "A client injector/client mod that allows you to extend the functionality of Guilded's client by providing theme and add-on support.",
+			"name": "Hanashi",
+			"type": "Website",
+			"description": "A modernized way to role play.<br/>Share your adventures with the world.",
 			"buttons": [
 				{
-					"title": "GitHub Repo",
-					"link": "https://github.com/ReGuilded/ReGuilded"
+					"title": "Visit Website",
+					"link": "https://hanashi.club"
 				},
 				{
-					"title": "My Addons",
-					"link": "https://github.com/Metalloriff/ReGuildedAddons"
-				},
-				{
-					"title": "My Themes",
-					"link": "https://github.com/Metalloriff/ReGuildedThemes"
+					"title": "View Roadmap",
+					"link": "https://trello.com/b/ZTfBwiqe/roadmap"
 				}
 			],
 			"images": [
-				"https://cdn.discordapp.com/attachments/591745990021611550/885912881156214884/my_eyes_have_been_saved.png"
+				"https://i.imgur.com/kV5eKam.png",
+				"https://i.imgur.com/XX9Vnrq.png",
+				"https://i.imgur.com/ZPw4oKJ.jpg",
+				"https://i.imgur.com/OLDzpRk.png",
+				"https://i.imgur.com/8fBQZ9Q.png"
+			]
+		},
+		{
+			"name": "Cirlos Legacy",
+			"type": "Website/Application",
+			"description": "A highly customizable chat platform built with ReactJS and Firebase, using minimal third-party packages.",
+			"buttons": [
+				{
+					"title": "Visit Website",
+					"link": "https://www.cirlos.net"
+				}
+			],
+			"images": [
+				"https://i.imgur.com/2Hje9Si.jpg",
+				"https://i.imgur.com/AKULdU3.jpg",
+				"https://i.imgur.com/AOXBwLn.jpg",
+				"https://i.imgur.com/tZOprzK.jpg",
+				"https://i.imgur.com/YhCvh4t.jpg",
+				"https://i.imgur.com/f6dM75u.jpg"
+			]
+		},
+		{
+			"name": "Project Tally",
+			"type": "Desktop Application (OSS)",
+			"description": "Measures the total file sizes and language percentages in your project.",
+			"buttons": [
+				{
+					"title": "Download",
+					"link": "https://github.com/Metalloriff/project-tally/releases/tag/1.0.0"
+				},
+				{
+					"title": "Source Code",
+					"link": "https://github.com/Metalloriff/project-tally/"
+				}
+			],
+			"images": [
+				"https://i.imgur.com/jk5jld8.png",
+				"https://i.imgur.com/WfJQE8V.png",
+				"https://i.imgur.com/lB2NkH3.png",
+				"https://i.imgur.com/IlceNdN.jpg",
+				"https://i.imgur.com/eLm5ZMt.png",
+				"https://i.imgur.com/BU7r435.png"
 			]
 		}
 	]

@@ -1,4 +1,3 @@
-import React from "react";
 import { Clipboard } from "react-feather";
 import QrCode from "../Components/General/QrCode";
 import { copyToClipboard } from "../Components/Modals";
@@ -6,16 +5,14 @@ import "./DonatePage.scss";
 
 const cryptoWallets = {
 	"Bitcoin (BTC)": "3KdJ97q9vWZpSfKLT5HyXerpthh5eXxwLk",
-	"Ethereum (ETH)": "0x69a9b0b6Ea7f33047F88701fF00c05631F39E645",
-	"Shiba Inu (SHIB)": "0x10d7b6c5B932027baF19a249323E99e59F73EC2f",
-	"Solana (SOL)": "3x9KYYFxMxkWJPbX5wpBiohZPan5PSHEBc5P8xjF45x5"
+	"Ethereum (ETH)": "0x69a9b0b6Ea7f33047F88701fF00c05631F39E645"
 };
 
 export default function DonatePage() {
 	return (
 		<div className="DonatePage">
 			<div className="Contents">
-				<h1>PayPal</h1>
+				<h1 style={{ marginTop: 100 }}>PayPal</h1>
 
 				<p>
 					You can pay or donate to my PayPal account either through my PayPal.me, or directly through my email address.
@@ -31,10 +28,22 @@ export default function DonatePage() {
 					</a>
 				</div>
 
-				<h1>Crypto</h1>
+				<h1 style={{ marginTop: 100 }}>Ko-fi</h1>
 
 				<p>
-					I accept payments and donations in the following cryptocurrencies:
+					I also have a Ko-fi, where you can make one-time or monthly donations.
+				</p>
+
+				<div className="Links Flex">
+					<a href="https://ko-fi.com/metalloriff">
+						Ko-fi.com/Metalloriff
+					</a>
+				</div>
+
+				<h1 style={{ marginTop: 100 }}>Crypto</h1>
+
+				<p>
+					Lastly, I also accept payments and donations in BTC and ETH:
 				</p>
 
 				<div className="Wallets">

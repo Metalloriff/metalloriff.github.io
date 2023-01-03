@@ -14,7 +14,7 @@ export const age = Math.floor((Date.now() - new Date("05/20/2001")) / 3.154e+10)
 function Projects() {
 	const data = usePromise(
 		() => fetch(
-			"https://dl.dropboxusercontent.com/s/53aehv6kh5tqdk8/my_projects.json",
+			"https://raw.githubusercontent.com/Metalloriff/metalloriff.github.io/master/projects.json",
 			{ cache: "no-cache" }
 		).then(r => r.json()).catch(err => {
 			console.error(err);
@@ -24,6 +24,12 @@ function Projects() {
 
 	return data ? (
 		<div className="Projects">
+			<h1>My Personal Projects</h1>
+
+			{data.projects.map((project, index) => (
+				<ProjectItem {...project} key={index} />
+			))}
+
 			<h1>Recent Commissions</h1>
 
 			<div className="Commissions">
@@ -34,12 +40,6 @@ function Projects() {
 					</div>
 				))}
 			</div>
-
-			<h1>My Personal Projects</h1>
-
-			{data.projects.map((project, index) => (
-				<ProjectItem {...project} key={index} />
-			))}
 		</div>
 	) : <InlineLoading />;
 }
@@ -221,16 +221,17 @@ function HeadIntro() {
 			<h1><b style={{ marginLeft: 40 }}><span>ReactJS</span></b>,   </h1>
 			<h1><b style={{ marginLeft: 40 }}><span>HTML</span></b>,   </h1>
 			<h1><b style={{ marginLeft: 40 }}><span>C#</span></b>,   </h1>
-			<h1><b style={{ marginLeft: 40 }}><span>Vector Design</span></b>,  </h1>
+			<h1><b style={{ marginLeft: 40 }}><span>Python</span></b>,   </h1>
+			<h1><b style={{ marginLeft: 40 }}><span><b>(</b>3D <b>||</b> 2D<b>)</b> Animation</span></b>,  </h1>
 
 			<h1><br /></h1>
 
 			<h1><b style={{ marginLeft: 40 }}><i>// Intermediate</i></b>   </h1>
 			<h1><b style={{ marginLeft: 40 }}><span>Java</span></b>,   </h1>
-			<h1><b style={{ marginLeft: 40 }}><span>Python</span></b>,   </h1>
 			<h1><b style={{ marginLeft: 40 }}><span>Lua</span></b>,  </h1>
 			<h1><b style={{ marginLeft: 40 }}><span>3D Modeling</span></b>,  </h1>
-			<h1><b style={{ marginLeft: 40 }}><span><b>(</b>3D <b>||</b> 2D<b>)</b> Animation</span></b>,  </h1>
+			<h1><b style={{ marginLeft: 40 }}><span>Digital Art</span></b>,  </h1>
+			<h1><b style={{ marginLeft: 40 }}><span>Vector Design</span></b>  </h1>
 			<h1><b>]</b>;</h1>
 
 			<h1><br /></h1>
@@ -240,10 +241,7 @@ function HeadIntro() {
 
 			<h1><br /></h1>
 
-			<h1>Contact/hire me <b><a href="/contact">here</a></b>,</h1>
-			<h1>or at my <b><a href="https://twitter.com/metalloriff">Twitter</a></b>!</h1>
-			<h1><b><i>// Psst..</i></b></h1>
-			<h1><b><i>// I'm looking for work! :)</i></b></h1>
+			<h1>Contact/hire me <b><a href="/contact">here</a></b>!</h1>
 
 			<h1><br /></h1>
 

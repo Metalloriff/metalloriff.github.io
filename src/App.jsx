@@ -40,7 +40,7 @@ function PageElement() {
 								style={{ "--secondary-color": "var(--txt-color)" }}>
 								<div className="HeadIntro">
 									<h1><b><span>while</span></b> (<b>!</b><i>sleeping</i>) {"{"}</h1>
-									<h1 style={{ marginLeft: 40 }}><b>code</b>();</h1>
+									<h1><b style={{ marginLeft: 40 }}>code</b>();</h1>
 									<h1>}</h1>
 								</div>
 							</div>
@@ -49,7 +49,7 @@ function PageElement() {
 
 							<h4>
 								<div className="Flex">
-									<Feather.User /> Gender/Pronouns
+									<Feather.User /> Gender, Pronouns
 								</div>
 
 								<p>Male, He/Him</p>
@@ -84,7 +84,7 @@ function PageElement() {
 									<Feather.Heart /> Relationship Status
 								</div>
 
-								<p>Taken ♥</p>
+								<p>Engaged ♥</p>
 							</h4>
 
 							<h4>
@@ -100,7 +100,7 @@ function PageElement() {
 									<Feather.Tv /> Favorite Shows
 								</div>
 
-								<p>BNA, Futurama, Avatar TLA, The Dragon Prince</p>
+								<p>Blue Exorcist, Fairy Tail, Edens Zero, My Hero Academia, Futurama</p>
 							</h4>
 
 							<h4 style={{ color: "var(--cf-purple)" }}>
@@ -116,7 +116,7 @@ function PageElement() {
 									<Feather.Truck /> Favorite Foods
 								</div>
 
-								<p>Burgers and anything Asian</p>
+								<p>Burgers and ice cream. The healthy stuff.</p>
 							</h4>
 
 							<h4>
@@ -132,7 +132,7 @@ function PageElement() {
 									<Feather.CloudLightning /> Favorite Weather
 								</div>
 
-								<p>Storms and rain ♥</p>
+								<p>Storms, rain, and snow ♥</p>
 							</h4>
 						</div>
 					);
