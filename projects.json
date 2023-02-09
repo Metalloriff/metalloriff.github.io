@@ -12,6 +12,27 @@
 	],
 	"projects": [
 		{
+			"name": "Gif Off!",
+			"type": "Game - Browser",
+			"description": "Gif Off is an interactive game in which users are presented with a randomly selected question from a set of predefined packs. Players must select a GIF image from Tenor as the most suitable response to the question. Once all responses have been submitted, users vote on the best response, and are rewarded with points for each vote they receive.",
+			"buttons": [
+				{
+					"title": "Play Now",
+					"link": "https://gif-off.web.app/"
+				},
+				{
+					"title": "View Source Code",
+					"link": "https://github.com/Metalloriff/gif-off/"
+				}
+			],
+			"images": [
+				"https://i.imgur.com/KauYuCo.jpg",
+				"https://i.imgur.com/iX4Rba2.jpg",
+				"https://i.imgur.com/sWHOwu2.jpg",
+				"https://cdn.discordapp.com/attachments/909184893769121794/1073094887957860474/afaefsefe.webp"
+			]
+		},
+		{
 			"name": "City Fog",
 			"type": "Color Palette/Theme",
 			"description": "A cyberpunk-esque color palette/theme, design to give a cold but lively feel.",
