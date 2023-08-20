@@ -35,7 +35,7 @@
 		{
 			"name": "Manacia",
 			"type": "Game - Desktop",
-			"description": "NOTE: Website is outdated, new one coming soon!<br/><br/><div><div><div>Manacia is a survival-sandbox RPG based around magical spells and abilities powered by classes' corresponding planets.</div><div>You play as anthropomorphic animals and creatures, that are highly customize-able, and pick any mix of spell and abilities for your load-out.</div><div>Fight dungeons with friends, fight your friends, build houses, destroy houses, explore the planets, and wield their powers.</div><div><br>Manacia was inspired by several different games, including Elder Scrolls Online, Dark Souls, TES:Skyrim, Rust, and The Forest.</div><div><br>Class descriptions</div><ul><li>Ignisterra</li><ul><li>The class of fire and earth, its power comes from the planet of Ignis, the planet that gives light to its surrounding planets.<li>This class deals high conditional damage, structured around weakening your enemies and taking advantage of them while weakened.</ul><li>Pruinaeaqua</li><ul><li>The class of ice and water, wielding power from the planet of Pruinae, a frozen, plains-y wasteland closest to the planet of Insula Quae, homeland to most warm-blooded races.<li>This class deals high overtime damage, offers useful slows, and powerful protection buffs for you and your allies.</ul><li>Inpulsaventus</li><ul><li>The class of shock and wind, using power from the planet of Inpulsa, a dark and dangerous planet, home to most cold-blooded races.<li>This class deals high instant damage, offers unique buffs and area of effect attacks.</ul><li>Tenebrissanguis</li><ul><li>The class of darkness and blood, wielding power from darkness, the void of space itself.<li>This class offers unique and powerful sacrificial attacks. Its power does not come without a price.</ul><li>Luxindustria</li><ul><li>The class of light and energy, wielding power from light and life itself.<li>This class offers powerful healing and protection spells to keep you and your allies on their feet.</ul></ul><div>Brief rundown of current features and content</div><ul><li>Fully-functional multiplayer</li><ul><li>Anything you can do alone, you can do with friends.</ul><li>PvE combat</li><ul><li>Dungeons.<li>Random encounters.</ul><li>PvP combat</li><ul><li>Log on with your friends and fight to the death!<li>Or host/join a server, find strangers and show them what you got.</ul><li>Base/house building and decorating</li><ul><li>Multi-layer house building and decorations.<li>Interact-able furnishings like beds to pass time, chairs to restore comfort, campfires to cook food and restore comfort, customize-able lighting, paint-able wallpapers, and more.</ul><li>Resource gathering and crafting</li><ul><li>Be rewarded for your concentration when gathering resources. The better you time your next attack, the faster it gets, making it easier to gather resources.<li>Simple but functional crafting, along with an easy-to-understand and hard-to-mess-up interface.<li>You can safely spam craft an item without the interface moving, causing you to click other things you don't want to craft.</ul><li>Fun and chaotic commands</li><ul><li>There are hundreds of commands, all listed in the console, along with a favorite feature to pin your favorite commands to the top.<li>Spawn hundreds of enemies, give yourself unlimited power, remove the cooldown for spells, crash your server.<li>Reduce your health, reduce your damage dealt, create your own classic Bethesda difficulty slider.</ul><li>Extensive server-player control</li><ul><li>The things above sound pretty scary, but you can't do that without permissions, and all of these permission can be changed, per-player, or per-role, and per-command.<li>Don't like PvP? Disable it. Want friendly PvP? Enable it.<li>Set a password for your server, so you don't get any uninvited guests.<li>Control weather, random encounters, PvP damage multipliers, time speed, custom server scripts, etc.</ul><li>Much more to come</li><ul><li>The game has been in development for nearly 2 years now, but it is actively being developed still, so much more is to come.<li>I'm a single developer, the game design, programming, audio mixing, 3D modeling, map design, etc. is all by myself. So development will be slower than a full team.<li>I have a small group of friends that help out with ability/spell design, and all audio in the game is from free or paid assets, but everything else is on my own.</ul></ul><div>NOTE - This game is in very early access. It is nowhere near completion, but is available for test play. If you wish to participate, please keep note that you will likely experience several bugs, some even game-breaking.</div><div></div></div></div>",
+			"description": "NOTE: Website is very outdated, new one coming soon!<br/><br/><div><div><div>Manacia is a survival-sandbox RPG based around magical spells and abilities powered by classes' corresponding planets.</div><div>You play as anthropomorphic animals and creatures, that are highly customize-able, and pick any mix of spell and abilities for your load-out.</div><div>Fight dungeons with friends, fight your friends, build houses, destroy houses, explore the planets, and wield their powers.</div><div><br>Manacia was inspired by several different games, including Elder Scrolls Online, Dark Souls, TES:Skyrim, Rust, and The Forest.</div><div><br>Class descriptions</div><ul><li>Ignisterra</li><ul><li>The class of fire and earth, its power comes from the planet of Ignis, the planet that gives light to its surrounding planets.<li>This class deals high conditional damage, structured around weakening your enemies and taking advantage of them while weakened.</ul><li>Pruinaeaqua</li><ul><li>The class of ice and water, wielding power from the planet of Pruinae, a frozen, plains-y wasteland closest to the planet of Insula Quae, homeland to most warm-blooded races.<li>This class deals high overtime damage, offers useful slows, and powerful protection buffs for you and your allies.</ul><li>Inpulsaventus</li><ul><li>The class of shock and wind, using power from the planet of Inpulsa, a dark and dangerous planet, home to most cold-blooded races.<li>This class deals high instant damage, offers unique buffs and area of effect attacks.</ul><li>Tenebrissanguis</li><ul><li>The class of darkness and blood, wielding power from darkness, the void of space itself.<li>This class offers unique and powerful sacrificial attacks. Its power does not come without a price.</ul><li>Luxindustria</li><ul><li>The class of light and energy, wielding power from light and life itself.<li>This class offers powerful healing and protection spells to keep you and your allies on their feet.</ul></ul><div>Brief rundown of current features and content</div><ul><li>Fully-functional multiplayer</li><ul><li>Anything you can do alone, you can do with friends.</ul><li>PvE combat</li><ul><li>Dungeons.<li>Random encounters.</ul><li>PvP combat</li><ul><li>Log on with your friends and fight to the death!<li>Or host/join a server, find strangers and show them what you got.</ul><li>Base/house building and decorating</li><ul><li>Multi-layer house building and decorations.<li>Interact-able furnishings like beds to pass time, chairs to restore comfort, campfires to cook food and restore comfort, customize-able lighting, paint-able wallpapers, and more.</ul><li>Resource gathering and crafting</li><ul><li>Be rewarded for your concentration when gathering resources. The better you time your next attack, the faster it gets, making it easier to gather resources.<li>Simple but functional crafting, along with an easy-to-understand and hard-to-mess-up interface.<li>You can safely spam craft an item without the interface moving, causing you to click other things you don't want to craft.</ul><li>Fun and chaotic commands</li><ul><li>There are hundreds of commands, all listed in the console, along with a favorite feature to pin your favorite commands to the top.<li>Spawn hundreds of enemies, give yourself unlimited power, remove the cooldown for spells, crash your server.<li>Reduce your health, reduce your damage dealt, create your own classic Bethesda difficulty slider.</ul><li>Extensive server-player control</li><ul><li>The things above sound pretty scary, but you can't do that without permissions, and all of these permission can be changed, per-player, or per-role, and per-command.<li>Don't like PvP? Disable it. Want friendly PvP? Enable it.<li>Set a password for your server, so you don't get any uninvited guests.<li>Control weather, random encounters, PvP damage multipliers, time speed, custom server scripts, etc.</ul><li>Much more to come</li><ul><li>The game has been in development for nearly 2 years now, but it is actively being developed still, so much more is to come.<li>I'm a single developer, the game design, programming, audio mixing, 3D modeling, map design, etc. is all by myself. So development will be slower than a full team.<li>I have a small group of friends that help out with ability/spell design, and all audio in the game is from free or paid assets, but everything else is on my own.</ul></ul><div>NOTE - This game is in very early access. It is nowhere near completion, but is available for test play. If you wish to participate, please keep note that you will likely experience several bugs, some even game-breaking.</div><div></div></div></div>",
 			"wip": true,
 			"buttons": [
 				{
@@ -108,6 +108,56 @@
 			]
 		},
 		{
+			"name": "Auto Chaos",
+			"type": "Game - Mobile, Desktop",
+			"description": "Auto Chaos is a multiplayer, procedurally generated racing game.<br><br>You have 3 respawns, falling off of the map or getting stuck will cause you to respawn, if you run out of respawns, you will spectate the leading player, and the last player alive wins.<br><br>You can earn respawns via checkpoints during the race. Every track is infinite, and once you get far into the map, it begins to rain, increasing the difficulty, and eventually begins snowing, further increasing the difficulty.\n\nThis game is in alpha and was originally made for the PROCJAM game jam, but will be updated. Bugs may be present. If you have any ideas or discover any bugs, I will be more than happy to help, here are a few ways to contact me.",
+			"buttons": [
+				{
+					"title": "Get on Google Play",
+					"link": "https://play.google.com/store/apps/details?id=com.ShrimpPlugGames.AutoChaos"
+				},
+				{
+					"title": "GameJolt Page",
+					"link": "https://gamejolt.com/games/auto-chaos/449874"
+				},
+				{
+					"title": "itch.io Page",
+					"link": "https://shrimppluggames.itch.io/auto-chaos"
+				}
+			],
+			"images": [
+				"https://m.gjcdn.net/game-header/1900/449874-add4sppe-v4.webp",
+				"https://m.gjcdn.net/game-screenshot/900/6793442-kcpumqwd-v4.webp",
+				"https://m.gjcdn.net/game-screenshot/1000/6793441-ycun9t2s-v4.webp",
+				"https://m.gjcdn.net/game-screenshot/1000/6793445-rsxppkwg-v4.webp",
+				"https://m.gjcdn.net/game-screenshot/1000/6793444-j6wdgfvn-v4.webp",
+				"https://m.gjcdn.net/game-screenshot/1000/6793443-i36zszk2-v4.webp"
+			]
+		},
+		{
+			"name": "Cirlos V2 (Alpha)",
+			"type": "Website/Application",
+			"description": "A simpler way to connect with friend and family, with powerful ways to personalize your experience.",
+			"wip": true,
+			"buttons": [
+				{
+					"title": "Visit Website",
+					"link": "https://v2.cirlos.net"
+				},
+				{
+					"title": "View Roadmap",
+					"link": "https://trello.com/b/7tv4xtyK/roadmap"
+				}
+			],
+			"images": [
+				"https://i.imgur.com/5Xwk2so.png",
+				"https://i.imgur.com/xfdCD8y.png",
+				"https://i.imgur.com/8LCiBZN.png",
+				"https://i.imgur.com/HG0dD6J.png",
+				"https://i.imgur.com/fPIX997.png"
+			]
+		},
+		{
 			"name": "Sucralose!",
 			"type": "Website",
 			"description": "A sweeter way to use e621!<br/><br/>A humble front-end replacement for <a href=\"https://e621.net\">e621.net</a> using their API/back-end.",
@@ -163,29 +213,6 @@
 			]
 		},
 		{
-			"name": "Cirlos V2 (Alpha)",
-			"type": "Website/Application",
-			"description": "A simpler way to connect with friend and family, with powerful ways to personalize your experience.",
-			"wip": true,
-			"buttons": [
-				{
-					"title": "Visit Website",
-					"link": "https://v2.cirlos.net"
-				},
-				{
-					"title": "View Roadmap",
-					"link": "https://trello.com/b/7tv4xtyK/roadmap"
-				}
-			],
-			"images": [
-				"https://i.imgur.com/5Xwk2so.png",
-				"https://i.imgur.com/xfdCD8y.png",
-				"https://i.imgur.com/8LCiBZN.png",
-				"https://i.imgur.com/HG0dD6J.png",
-				"https://i.imgur.com/fPIX997.png"
-			]
-		},
-		{
 			"name": "Node Widgets",
 			"type": "Desktop Application (OSS)",
 			"description": "Node Widgets is a mostly finished project I'm working on, inspired by Rainmeter.<br>It allows you to create/use custom interact-able widgets created with ReactJS and Electron.<br><br>Rainmeter is a great program, but I find it really obnoxious that the language used to create skins is .ini, and I decided to make a similar concept using Electron.",
@@ -207,33 +234,6 @@
 				"https://i.imgur.com/rSY1nz6.png",
 				"https://i.imgur.com/qrrWKsq.png",
 				"https://i.imgur.com/G4cAwyM.png"
-			]
-		},
-		{
-			"name": "Auto Chaos",
-			"type": "Game - Mobile, Desktop",
-			"description": "Auto Chaos is a multiplayer, procedurally generated racing game.<br><br>You have 3 respawns, falling off of the map or getting stuck will cause you to respawn, if you run out of respawns, you will spectate the leading player, and the last player alive wins.<br><br>You can earn respawns via checkpoints during the race. Every track is infinite, and once you get far into the map, it begins to rain, increasing the difficulty, and eventually begins snowing, further increasing the difficulty.\n\nThis game is in alpha and was originally made for the PROCJAM game jam, but will be updated. Bugs may be present. If you have any ideas or discover any bugs, I will be more than happy to help, here are a few ways to contact me.",
-			"buttons": [
-				{
-					"title": "Get on Google Play",
-					"link": "https://play.google.com/store/apps/details?id=com.ShrimpPlugGames.AutoChaos"
-				},
-				{
-					"title": "GameJolt Page",
-					"link": "https://gamejolt.com/games/auto-chaos/449874"
-				},
-				{
-					"title": "itch.io Page",
-					"link": "https://shrimppluggames.itch.io/auto-chaos"
-				}
-			],
-			"images": [
-				"https://m.gjcdn.net/game-header/1900/449874-add4sppe-v4.webp",
-				"https://m.gjcdn.net/game-screenshot/900/6793442-kcpumqwd-v4.webp",
-				"https://m.gjcdn.net/game-screenshot/1000/6793441-ycun9t2s-v4.webp",
-				"https://m.gjcdn.net/game-screenshot/1000/6793445-rsxppkwg-v4.webp",
-				"https://m.gjcdn.net/game-screenshot/1000/6793444-j6wdgfvn-v4.webp",
-				"https://m.gjcdn.net/game-screenshot/1000/6793443-i36zszk2-v4.webp"
 			]
 		},
 		{
@@ -272,6 +272,29 @@
 				"https://i.imgur.com/VEbzqRR.png",
 				"https://i.imgur.com/Ib9JjKI.png",
 				"https://i.imgur.com/Njaoak6.png"
+			]
+		},
+		{
+			"name": "Project Tally",
+			"type": "Desktop Application (OSS)",
+			"description": "Measures the total file sizes and language percentages in your project.",
+			"buttons": [
+				{
+					"title": "Download",
+					"link": "https://github.com/Metalloriff/project-tally/releases/tag/1.0.0"
+				},
+				{
+					"title": "Source Code",
+					"link": "https://github.com/Metalloriff/project-tally/"
+				}
+			],
+			"images": [
+				"https://i.imgur.com/jk5jld8.png",
+				"https://i.imgur.com/WfJQE8V.png",
+				"https://i.imgur.com/lB2NkH3.png",
+				"https://i.imgur.com/IlceNdN.jpg",
+				"https://i.imgur.com/eLm5ZMt.png",
+				"https://i.imgur.com/BU7r435.png"
 			]
 		},
 		{
@@ -336,29 +359,6 @@
 				"https://i.imgur.com/tZOprzK.jpg",
 				"https://i.imgur.com/YhCvh4t.jpg",
 				"https://i.imgur.com/f6dM75u.jpg"
-			]
-		},
-		{
-			"name": "Project Tally",
-			"type": "Desktop Application (OSS)",
-			"description": "Measures the total file sizes and language percentages in your project.",
-			"buttons": [
-				{
-					"title": "Download",
-					"link": "https://github.com/Metalloriff/project-tally/releases/tag/1.0.0"
-				},
-				{
-					"title": "Source Code",
-					"link": "https://github.com/Metalloriff/project-tally/"
-				}
-			],
-			"images": [
-				"https://i.imgur.com/jk5jld8.png",
-				"https://i.imgur.com/WfJQE8V.png",
-				"https://i.imgur.com/lB2NkH3.png",
-				"https://i.imgur.com/IlceNdN.jpg",
-				"https://i.imgur.com/eLm5ZMt.png",
-				"https://i.imgur.com/BU7r435.png"
 			]
 		}
 	]
