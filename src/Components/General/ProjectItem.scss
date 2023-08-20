@@ -25,32 +25,34 @@
 
 	h2 {
 		margin-top: 0;
+
+		margin-right: auto;
 	}
 
 	> .TypeLabelContainer {
 		position: absolute;
 		top: -10px;
 		margin: 0 20px;
+	}
 
-		> .NsfwTag {
-			margin: 0 20px;
+	.Tag {
+		margin: 0 20px;
+		margin-right: -15px;
 
-			font-weight: bolder;
-			color: var(--cf-red);
-			border: 2px solid currentColor;
+		font-weight: bolder;
+		border: 2px solid currentColor;
 
-			padding: 3px 10px;
-			font-size: 0.8em;
+		padding: 3px 10px;
+		font-size: 0.5em;
 
-			border-radius: 100px;
+		border-radius: 100px;
 
-			cursor: not-allowed;
+		cursor: not-allowed;
 
-			.TooltipContainer {
-				color: white;
+		.TooltipContainer {
+			color: white;
 
-				direction: ltr;
-			}
+			direction: ltr;
 		}
 	}
 

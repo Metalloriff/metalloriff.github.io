@@ -13,7 +13,8 @@ export default function ProjectItem(project) {
 		description,
 		buttons,
 		images,
-		nsfw = false
+		nsfw = false,
+		wip = false
 	} = project;
 
 	const ref = React.useRef();
@@ -91,16 +92,6 @@ export default function ProjectItem(project) {
 		<div className="ProjectItem Flex" ref={ref}>
 			<div className="TypeLabelContainer FlexCenter">
 				<h5>{type}</h5>
-
-				{nsfw && (
-					<div className="NsfwTag">
-						NSFW
-
-						<Tooltip>
-							This site contains 18+ content!
-						</Tooltip>
-					</div>
-				)}
 			</div>
 
 			<div className="ImagesSection">
@@ -135,7 +126,29 @@ export default function ProjectItem(project) {
 			</div>
 
 			<div className="BodySection">
-				<h2 className="Name">{name}</h2>
+				<h2 className="Name FlexCenter">
+					{name}
+
+					{nsfw && (
+						<div className="Tag" style={{ color: "var(--cf-red)" }}>
+							NSFW
+
+							<Tooltip>
+								This site contains 18+ content!
+							</Tooltip>
+						</div>
+					)}
+
+					{wip && (
+						<div className="Tag" style={{ color: "var(--cf-green)" }}>
+							WIP
+
+							<Tooltip>
+								Work in progress!
+							</Tooltip>
+						</div>
+					)}
+				</h2>
 
 				<div
 					ref={e => setTimeout(() => {

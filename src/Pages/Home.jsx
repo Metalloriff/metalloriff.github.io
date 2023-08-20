@@ -206,16 +206,26 @@ function HeadIntro() {
 
 			<h1><br /></h1>
 
-			<h1>A passionate freelance <b>[</b></h1>
-			<h1><b style={{ marginLeft: 40 }}><span>web</span></b>,   </h1>
-			<h1><b style={{ marginLeft: 40 }}><span>software</span></b>,   </h1>
-			<h1><b style={{ marginLeft: 40 }}><span>game </span></b></h1>
+			<h1>A passionate hobbyist <b>[</b></h1>
+			<h1><b style={{ marginLeft: 40 }}><span>Web</span></b>,   </h1>
+			<h1><b style={{ marginLeft: 40 }}><span>Software</span></b>,   </h1>
+			<h1><b style={{ marginLeft: 40 }}><span>Game </span></b></h1>
 			<h1><b>]</b> developer <b>&&</b> designer;</h1>
 
 			<h1><br /></h1>
 
+			<h1 data-scroll-to={true}>Some of my hobbies include <b>[</b></h1>
+			<h1><b style={{ marginLeft: 40 }}><a href="https://github.com/metalloriff">Programming</a></b>,   </h1>
+			<h1><b style={{ marginLeft: 40 }}><a href="https://www.printables.com/@Metalloriff_1158555">3D Printing</a></b>,   </h1>
+			<h1><b style={{ marginLeft: 40 }}><span>Digital Art</span></b>,   </h1>
+			<h1><b style={{ marginLeft: 40 }}><span>AI Art</span></b>,   </h1>
+			<h1><b style={{ marginLeft: 40 }}><a href="https://soundcloud.com/metalloriff">Music Production</a></b></h1>
+			<h1><b>]</b>;</h1>
+
+			<h1><br /></h1>
+
 			<h1 data-scroll-to={true}>I work with <b>[</b></h1>
-			<h1><b style={{ marginLeft: 40 }}><i>// Fluently</i></b>   </h1>
+			<h1><b style={{ marginLeft: 40 }}><i>// Fluent</i></b>   </h1>
 			<h1><b style={{ marginLeft: 40 }}><span>JavaScript</span></b>,   </h1>
 			<h1><b style={{ marginLeft: 40 }}><span>CSS <b>||</b> SCSS</span></b>,   </h1>
 			<h1><b style={{ marginLeft: 40 }}><span>ReactJS</span></b>,   </h1>

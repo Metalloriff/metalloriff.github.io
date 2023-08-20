@@ -2,7 +2,6 @@ import React from "react";
 import * as Feather from "react-feather";
 import "./App.scss";
 import Heart from "./Assets/TwemojiHeart.svg";
-import "./city-fog-theme.css";
 import { joinClassNames } from "./Classes/Constants";
 import { useEventListener, useMediaQuery } from "./Classes/Hooks";
 import ContextMenu from "./Components/ContextMenuHandler";
@@ -12,6 +11,7 @@ import Toasts from "./Components/Toasts";
 import ContactPage from "./Pages/ContactPage";
 import DonatePage from "./Pages/DonatePage";
 import HomePage, { age, randomRange } from "./Pages/Home";
+import "./city-fog-theme.css";
 
 window.addEventListener("popstate", () => {
 	App.forceUpdate?.();
@@ -41,7 +41,7 @@ function PageElement() {
 								<div className="HeadIntro">
 									<h1><b><span>while</span></b> (<b>!</b><i>sleeping</i>) {"{"}</h1>
 									<h1><b style={{ marginLeft: 40 }}>code</b>();</h1>
-									<h1>}</h1>
+									<h1>{"}"}</h1>
 								</div>
 							</div>
 
