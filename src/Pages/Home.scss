@@ -144,58 +144,6 @@ body {
 		}
 	}
 
-	.Header {
-		width: 100vw;
-
-		margin-top: 5vh;
-		margin-bottom: 10vh;
-
-		.LogoContainer {
-			width: 80px;
-			height: 80px;
-
-			border-radius: 100%;
-			margin-right: 12px;
-		}
-
-		.Logo {
-			width: 80px;
-			height: 80px;
-
-			border-radius: 50%;
-			margin-right: 12px;
-
-			pointer-events: none;
-		}
-
-		.Title {
-			> span {
-				color: $primaryColor;
-			}
-		}
-
-		.HeaderButtons {
-			gap: 30px;
-			font-size: 0.65em;
-			margin-top: 15px;
-
-			> .Button {
-				> h3 {
-					margin: 4px;
-				}
-
-				cursor: pointer;
-				transition: filter $ft;
-
-				color: var(--txt-color);
-
-				&:hover {
-					filter: brightness(1.25);
-				}
-			}
-		}
-	}
-
 	.HeadIntro {
 		width: 700px;
 		max-width: 70vw;
@@ -307,6 +255,24 @@ body {
 			color: $primaryColor;
 		}
 
+		.Tabs {
+			gap: 15px;
+			flex-wrap: wrap;
+
+			.Tab {
+				cursor: pointer;
+
+				border: 2px solid currentColor;
+				padding: 5px 20px;
+				border-radius: 100px;
+				background: var(--primary-bg);
+
+				&.Current {
+					color: var(--secondary-color);
+				}
+			}
+		}
+
 		> .Commissions {
 			margin: 0 20vw;
 
@@ -322,6 +288,15 @@ body {
 					color: $secondaryColor;
 				}
 			}
+		}
+	}
+
+	.ThatsNotAllFolks {
+		margin-bottom: 100px;
+		margin-top: -50px;
+
+		.TitleBarMockup {
+			margin-right: -15px;
 		}
 	}
 }
@@ -395,6 +370,57 @@ body {
 
 			&.Close {
 				background: var(--cf-red);
+			}
+		}
+	}
+}
+.Header {
+	width: 100vw;
+
+	margin-top: 5vh;
+	margin-bottom: 10vh;
+
+	.LogoContainer {
+		width: 80px;
+		height: 80px;
+
+		border-radius: 100%;
+		margin-right: 12px;
+	}
+
+	.Logo {
+		width: 80px;
+		height: 80px;
+
+		border-radius: 50%;
+		margin-right: 12px;
+
+		pointer-events: none;
+	}
+
+	.Title {
+		>span {
+			color: $primaryColor;
+		}
+	}
+
+	.HeaderButtons {
+		gap: 30px;
+		font-size: 0.65em;
+		margin-top: 15px;
+
+		>.Button {
+			>h3 {
+				margin: 4px;
+			}
+
+			cursor: pointer;
+			transition: filter $ft;
+
+			color: var(--txt-color);
+
+			&:hover {
+				filter: brightness(1.25);
 			}
 		}
 	}

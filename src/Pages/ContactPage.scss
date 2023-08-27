@@ -19,34 +19,6 @@
 		max-width: 80vw;
 	}
 
-	.Window {
-		margin: 60px 0;
-		width: 500px;
-		max-width: 70vw;
-
-		background: var(--secondary-bg);
-		padding: 30px 15px;
-
-		overflow: hidden;
-		border-radius: 15px;
-
-		box-shadow: 0 0 12px 3px rgba(black, 0.1);
-
-		position: relative;
-
-		> .TitleBarMockup {
-			margin-right: -15px;
-
-			.Close {
-				cursor: pointer;
-
-				&:hover {
-					filter: brightness(1.1);
-				}
-			}
-		}
-	}
-
 	.DropdownContainer {
 		width: 100%;
 
@@ -109,6 +81,10 @@
 		padding: 17px;
 		resize: vertical;
 		min-height: 200px;
+	}
+
+	.TitleBarMockup {
+		margin-right: -15px;
 	}
 
 	.MainButton {

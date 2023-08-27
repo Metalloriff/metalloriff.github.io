@@ -5,6 +5,7 @@ import Heart from "./Assets/TwemojiHeart.svg";
 import { joinClassNames } from "./Classes/Constants";
 import { useEventListener, useMediaQuery } from "./Classes/Hooks";
 import ContextMenu from "./Components/ContextMenuHandler";
+import LinkWrapper from "./Components/LinkWrapper";
 import { Modals } from "./Components/Modals";
 import PageFooter from "./Components/PageElements/PageFooter";
 import Toasts from "./Components/Toasts";
@@ -210,6 +211,30 @@ export default function App() {
 			<Modals />
 			<Toasts />
 			<ContextMenu.Handler />
+		</div>
+	);
+}
+
+export function Window({ title, children }) {
+	return (
+		<div className="Window">
+			<div className="TitleBarMockup FlexCenter">
+				<div className="Title">
+					{title}
+				</div>
+
+				<div className="Buttons FlexCenter">
+					<div className="Button Minimize" />
+					<div className="Button Restore" />
+
+					<LinkWrapper
+						className="Button Close"
+						href="/"
+					/>
+				</div>
+			</div>
+
+			{children}
 		</div>
 	);
 }

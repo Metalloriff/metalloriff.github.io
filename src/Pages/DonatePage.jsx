@@ -1,7 +1,7 @@
-import { Clipboard } from "react-feather";
-import QrCode from "../Components/General/QrCode";
+import { Window } from "../App";
 import { copyToClipboard } from "../Components/Modals";
 import "./DonatePage.scss";
+import { Header } from "./Home";
 
 const cryptoWallets = {
 	"Bitcoin (BTC)": "3KdJ97q9vWZpSfKLT5HyXerpthh5eXxwLk",
@@ -11,74 +11,46 @@ const cryptoWallets = {
 export default function DonatePage() {
 	return (
 		<div className="DonatePage">
+			<Header />
+
 			<div className="Contents">
-				<h1 style={{ marginTop: 100 }}>PayPal</h1>
+				<Window title="PayPal">
+					<p>
+						PayPal is optimal for one-time donations. You can find my PayPal.me link below, or if it's more convenient for you, you can simply copy my email address directly.
+					</p>
 
-				<p>
-					You can pay or donate to my PayPal account either through my PayPal.me, or directly through my email address.
-				</p>
+					<div className="Links FlexCenter">
+						<a href="https://paypal.me/israelboone">
+							PayPal.me
+						</a>
 
-				<div className="Links Flex">
-					<a href="https://paypal.me/israelboone">
-						PayPal.me
-					</a>
+						<a href="#" onClick={() => copyToClipboard("itbchannel@gmail.com")}>
+							Copy Email Address
+						</a>
+					</div>
+				</Window>
 
-					<a href="#" onClick={() => copyToClipboard("itbchannel@gmail.com")}>
-						Email Address
-					</a>
-				</div>
+				<Window title="Ko-fi">
+					<p>
+						I also have a Ko-fi page, where you have the option to make one-time donations or set up monthly contributions.
+					</p>
 
-				<h1 style={{ marginTop: 100 }}>Ko-fi</h1>
+					<div className="Links FlexCenter">
+						<a href="https://ko-fi.com/metalloriff">
+							Ko-fi.com/Metalloriff
+						</a>
+					</div>
+				</Window>
 
-				<p>
-					I also have a Ko-fi, where you can make one-time or monthly donations.
-				</p>
+				<Window title="How your donations help ♥">
+					<p>
+						I strive to make as many projects as possible free of charge. Receiving donations helps me upkeep any database/server costs for projects that require it. Along with the yearly charge for domains.
+					</p>
 
-				<div className="Links Flex">
-					<a href="https://ko-fi.com/metalloriff">
-						Ko-fi.com/Metalloriff
-					</a>
-				</div>
-
-				<h1 style={{ marginTop: 100 }}>Crypto</h1>
-
-				<p>
-					Lastly, I also accept payments and donations in BTC and ETH:
-				</p>
-
-				<div className="Wallets">
-					{Object.keys(cryptoWallets).map(key => (
-						<div key={key} className="Wallet">
-							<div className="TitleBarMockup FlexCenter">
-								<div className="Title">
-									{key}
-								</div>
-
-								<div className="Buttons FlexCenter">
-									<div className="Button Minimize" />
-									<div className="Button Restore" />
-									<div className="Button Close" />
-								</div>
-							</div>
-
-							<p
-								className="Address FlexCenter"
-								onClick={() => {
-									copyToClipboard(
-										cryptoWallets[key]
-									);
-								}}
-							>
-								<Clipboard />
-								<span>{cryptoWallets[key]}</span>
-							</p>
-
-							<QrCode>
-								{cryptoWallets[key]}
-							</QrCode>
-						</div>
-					))}
-				</div>
+					<p>
+						My aspiration in life is to earn enough income via donations to keep making these free projects. Donations from those who can afford it help me to keep my projects free for those who can't.
+					</p>
+				</Window>
 			</div>
 		</div>
 	);

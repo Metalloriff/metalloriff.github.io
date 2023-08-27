@@ -13,8 +13,7 @@ export default function ProjectItem(project) {
 		description,
 		buttons,
 		images,
-		nsfw = false,
-		wip = false
+		flags = []
 	} = project;
 
 	const ref = React.useRef();
@@ -129,7 +128,17 @@ export default function ProjectItem(project) {
 				<h2 className="Name FlexCenter">
 					{name}
 
-					{nsfw && (
+					{flags.includes("wip") && (
+						<div className="Tag" style={{ color: "var(--cf-green)" }}>
+							WIP
+
+							<Tooltip>
+								Work in progress!
+							</Tooltip>
+						</div>
+					)}
+
+					{flags.includes("nsfw") && (
 						<div className="Tag" style={{ color: "var(--cf-red)" }}>
 							NSFW
 
@@ -139,12 +148,12 @@ export default function ProjectItem(project) {
 						</div>
 					)}
 
-					{wip && (
-						<div className="Tag" style={{ color: "var(--cf-green)" }}>
-							WIP
+					{flags.includes("deprecated") && (
+						<div className="Tag" style={{ color: "var(--cf-yellow)" }}>
+							Deprecated
 
 							<Tooltip>
-								Work in progress!
+								This project will receive no more updates, and is likely to be broken!
 							</Tooltip>
 						</div>
 					)}

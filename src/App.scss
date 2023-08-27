@@ -136,3 +136,29 @@ a:not(.LinkWrapper) {
 	z-index: -100;
 	border-radius: 50%;
 }
+
+.Window {
+	margin-bottom: 40px;
+	width: 500px;
+	max-width: 70vw;
+
+	background: var(--secondary-bg);
+	padding: 30px 15px;
+
+	overflow: hidden;
+	border-radius: 15px;
+
+	box-shadow: 0 0 12px 3px rgba(black, 0.1);
+
+	position: relative;
+
+	> .TitleBarMockup {
+		.Close {
+			cursor: pointer;
+
+			&:hover {
+				filter: brightness(1.1);
+			}
+		}
+	}
+}

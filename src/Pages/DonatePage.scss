@@ -20,39 +20,13 @@
 
 	.Links {
 		gap: 20px;
+		margin-top: 30px;
 
 		font-size: 1.2em;
 	}
 
-	.QrCode {
-		> canvas {
-			border-radius: 30px;
-		}
-	}
-
-	.Address {
-		gap: 5px;
-
-		cursor: pointer;
-
-		> span {
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: pre;
-		}
-
-		> svg {
-			opacity: 0;
-			transition: opacity $ft;
-		}
-
-		&:hover > svg {
-			opacity: 1;
-		}
-	}
-
-	.Wallet {
-		margin-bottom: 60px;
+	.Window {
+		margin-bottom: 40px;
 		max-width: 70vw;
 
 		background: var(--secondary-bg);

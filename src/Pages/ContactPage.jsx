@@ -1,8 +1,10 @@
 import React from "react";
 import { Send } from "react-feather";
+import { Window } from "../App";
 import LinkWrapper from "../Components/LinkWrapper";
 import { copyToClipboard } from "../Components/Modals";
 import "./ContactPage.scss";
+import { Header } from "./Home";
 
 function Dropdown({ children = [], callback }) {
 	const [opened, setOpened] = React.useState(false);
@@ -34,30 +36,6 @@ function Dropdown({ children = [], callback }) {
 	);
 }
 
-function Window({ title, children }) {
-	return (
-		<div className="Window">
-			<div className="TitleBarMockup FlexCenter">
-				<div className="Title">
-					{title}
-				</div>
-
-				<div className="Buttons FlexCenter">
-					<div className="Button Minimize" />
-					<div className="Button Restore" />
-
-					<LinkWrapper
-						className="Button Close"
-						href="/"
-					/>
-				</div>
-			</div>
-
-			{children}
-		</div>
-	);
-}
-
 export default function ContactPage() {
 	const [contactReason, setContactReason] = React.useState("Job Inquiries");
 	const [subject, setSubject] = React.useState("");
@@ -65,25 +43,19 @@ export default function ContactPage() {
 
 	return (
 		<div className="ContactPage">
+			<Header />
+
 			<div className="Contents">
 				<Window title="Telegram">
-					You can find me on Telegram, <a href="https://telegram.me/metalloriff">telegram.me/metalloriff</a>
+					You can find me on Telegram at <a href="https://telegram.me/metalloriff">telegram.me/metalloriff</a>
 				</Window>
 
 				<Window title="Discord">
-					You can join my Discord server with invite link <a href="https://discord.gg/Dfb96RJst6">Dfb96RJst6</a>, visit my profile directly <a href="https://discord.com/users/264163473179672576">here</a>, or copy my Discord username and tag <a href="#" onClick={() => copyToClipboard("Metalloriff#2891")}>Metalloriff#2891</a>.
-				</Window>
-
-				<Window title="Twitter">
-					You can find me on Twitter, <a href="https://twitter.com/metalloriff">@metalloriff</a>.
+					You can join my Discord server with invite link <a href="https://discord.gg/Dfb96RJst6">Dfb96RJst6</a>, visit my profile directly <a href="https://discord.com/users/264163473179672576">here</a>, or copy my Discord username <a href="#" onClick={() => copyToClipboard("metalloriff")}>metalloriff</a>.
 				</Window>
 
 				<Window title="Email Generator">
 					<h3 className="Title">Contact Reason</h3>
-
-					<p>
-						What is your reason for contacting me?
-					</p>
 
 					<Dropdown callback={r => setContactReason(r)}>
 						{[
@@ -112,7 +84,7 @@ export default function ContactPage() {
 
 					<p>
 						The message you would like to send.<br />
-						If you're looking to commission me, a budget is very helpful. 💜
+						If you're looking to commission me, a general budget is very helpful, but not necessary.
 					</p>
 
 					<textarea

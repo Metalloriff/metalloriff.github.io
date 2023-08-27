@@ -1,6 +1,7 @@
 import _ from "lodash";
-import React from "react";
-import { Coffee, GitHub, MessageCircle, Twitter } from "react-feather";
+import React, { useState } from "react";
+import { Coffee, GitHub, Home, MessageCircle } from "react-feather";
+import { Window } from "../App";
 import Logo from "../Assets/Logo.png";
 import { useEventListener, usePromise } from "../Classes/Hooks";
 import ProjectItem from "../Components/General/ProjectItem";
@@ -22,29 +23,47 @@ function Projects() {
 		})
 	);
 
+	const [category, setCategory] = useState("featured");
+
 	return data ? (
 		<div className="Projects">
-			<h1>My Personal Projects</h1>
+			<h1>Projects</h1>
 
-			{data.projects.map((project, index) => (
+			<div className="Tabs FlexCenter" onClick={e => {
+				const cat = e.target.getAttribute("data-cat");
+				if (!cat) return;
+
+				setCategory(cat);
+
+				[...e.currentTarget.childNodes].forEach(e => e.classList.remove("Current"));
+				e.target.classList.add("Current");
+			}}>
+				<div className="Tab" data-cat="all">All</div>
+				<div className="Tab Current" data-cat="featured">Featured</div>
+				<div className="Tab" data-cat="websites">Websites</div>
+				<div className="Tab" data-cat="games">Games</div>
+				<div className="Tab" data-cat="software">Software</div>
+				<div className="Tab" data-cat="dev">For Developers</div>
+			</div>
+
+			{data.projects.filter(project => category === "all" || (project.categories || []).includes(category)).map((project, index) => (
 				<ProjectItem {...project} key={index} />
 			))}
 
-			<h1>Recent Commissions</h1>
-
-			<div className="Commissions">
-				{data.commissions.map((project, index) => (
-					<div className="CommissionItem" key={index}>
-						<h2 className="Name">{project.name}</h2>
-						<a className="Link" href={project.link}>{project.link}</a>
-					</div>
-				))}
-			</div>
+			{category !== "all" && (
+				<div className="FlexCenter ThatsNotAllFolks">
+					<Window title="That's not all!">
+						<p>
+							Scroll to the top of the projects section to see the different categories available!
+						</p>
+					</Window>
+				</div>
+			)}
 		</div>
 	) : <InlineLoading />;
 }
 
-function Header() {
+export function Header() {
 	return (
 		<header className="Header FlexCenter Col">
 			<div className="FlexCenter">
@@ -55,12 +74,12 @@ function Header() {
 
 			<div className="HeaderButtons FlexCenter">
 				<LinkWrapper
-					href="https://twitter.com/metalloriff"
+					href="/"
 					className="Button FlexCenter Col"
 				>
-					<Twitter />
+					<Home />
 
-					<h4>TWITTER</h4>
+					<h4>HOME</h4>
 				</LinkWrapper>
 
 				<LinkWrapper
