@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useMemo, useReducer } from "react";
 import * as Feather from "react-feather";
 import "./App.scss";
 import Heart from "./Assets/TwemojiHeart.svg";
-import { joinClassNames } from "./Classes/Constants";
+import { getRandomKey, joinClassNames } from "./Classes/Constants";
 import { useEventListener, useMediaQuery } from "./Classes/Hooks";
 import ContextMenu from "./Components/ContextMenuHandler";
 import LinkWrapper from "./Components/LinkWrapper";
@@ -190,6 +190,67 @@ function StarField({ index }) {
 	);
 }
 
+function calculateRotation(ex, ey, tx, ty) {
+	const dx = tx - ex;
+	const dy = ty - ey;
+	const angle = Math.atan2(dy, dx);
+
+	let degrees = angle * (180 / Math.PI);
+
+	if (degrees < 0) {
+		degrees += 360;
+	}
+
+	return degrees;
+}
+
+function ShootingStar() {
+	const [iteration, iterate] = useReducer(x => x + 1, -1);
+	const colors = ["red", "orange", "yellow", "green", "blue", "purple", "pink"];
+	const color = useMemo(() => colors[Math.floor(Math.random() * colors.length)], [iteration]);
+	const time = useMemo(() => Math.floor(1000 + (Math.random() * 3000)), [iteration]);
+	const delay = useMemo(() => Math.floor((iteration === -1 ? 0 : Math.ceil(time / 1000)) + (Math.random() * 20)), [iteration]);
+	const size = useMemo(() => 0.3 + (Math.random() * 2), [iteration]);
+
+	const properties = useMemo(() => {
+		const corners = [
+			[0, 0], [window.innerWidth, 0],
+			[0, window.innerHeight], [window.innerWidth, window.innerHeight]
+		];
+		const oppositeCorners = corners.slice().reverse();
+
+		const startIndex = Math.floor(Math.random() * corners.length);
+		const start = corners[startIndex];
+		const end = [
+			oppositeCorners[startIndex][0] === 0 ? -300 : (oppositeCorners[startIndex][0] + 300),
+			randomRange(start[1], oppositeCorners[startIndex][1])
+		];
+
+		return {
+			"--ss-sx": start[0] + "px",
+			"--ss-sy": start[1] + "px",
+			"--ss-tx": end[0] + "px",
+			"--ss-ty": end[1] + "px",
+			"--ss-rot": calculateRotation(...start, ...end) + "deg",
+			"--ss-life": time + "ms",
+			"--ss-size": size
+		};
+	}, [iteration]);
+
+	useEffect(() => {
+		setTimeout(() => {
+			iterate();
+		}, delay * 1000);
+	}, [delay]);
+
+	return iteration >= 0 ? (
+		<div className="ShootingStar" style={{
+			color: `var(--cf-${color})`,
+			...properties
+		}} key={getRandomKey()} />
+	) : null;
+}
+
 export default function App() {
 	const isMobile = useMediaQuery("max-width", 1000);
 	const [, forceUpdate] = React.useReducer(x => x + 1, 0);
@@ -202,6 +263,16 @@ export default function App() {
 				<StarField index={2} />
 				<StarField index={3} />
 				<StarField index={4} />
+
+				<div className="ShootingStarField">
+					<ShootingStar />
+					<ShootingStar />
+					<ShootingStar />
+					<ShootingStar />
+					<ShootingStar />
+					<ShootingStar />
+					<ShootingStar />
+				</div>
 
 				<PageElement />
 			</div>

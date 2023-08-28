@@ -137,6 +137,79 @@ a:not(.LinkWrapper) {
 	border-radius: 50%;
 }
 
+.ShootingStarField {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	.ShootingStar {
+		position: absolute;
+
+		top: var(--ss-sy);
+		left: var(--ss-sx);
+		transform: rotate(var(--ss-rot)) scale(var(--ss-size));
+
+		height: 2px;
+		background: linear-gradient(-45deg, currentColor, transparent);
+		border-radius: 999px;
+		filter: drop-shadow(0 0 8px currentColor) brightness(1.1);
+		animation: ss-trail var(--ss-life) ease-in-out, ss-main var(--ss-life) ease-in-out;
+		animation-fill-mode: forwards;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: -4px;
+			right: -40px;
+			width: 120px;
+			height: 10px;
+			background: radial-gradient(white 10%, currentColor, transparent 50%);
+			border-radius: 999px;
+			animation: ss-flicker 200ms ease-in-out infinite;
+		}
+
+		@keyframes ss-trail {
+			0% {
+				width: 0;
+			}
+
+			30% {
+				width: 200px;
+			}
+
+			100% {
+				width: 0;
+			}
+		}
+
+		@keyframes ss-main {
+			to {
+				top: var(--ss-ty);
+				left: var(--ss-tx);
+			}
+		}
+
+		@keyframes ss-flicker {
+			0% {
+				opacity: 0.8;
+				filter: none;
+			}
+
+			20% {
+				opacity: 1;
+				filter: brightness(1.2);
+			}
+
+			100% {
+				opacity: 0.8;
+				filter: none;
+			}
+		}
+	}
+}
+
 .Window {
 	margin-bottom: 40px;
 	width: 500px;

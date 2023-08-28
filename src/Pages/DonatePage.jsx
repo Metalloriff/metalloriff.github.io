@@ -16,7 +16,7 @@ export default function DonatePage() {
 			<div className="Contents">
 				<Window title="PayPal">
 					<p>
-						PayPal is optimal for one-time donations. You can find my PayPal.me link below, or if it's more convenient for you, you can simply copy my email address directly.
+						PayPal is most convenient if you'd like to support me. You can find my PayPal.me link below, or if it's more convenient for you, you can simply copy my email address directly.
 					</p>
 
 					<div className="Links FlexCenter">
