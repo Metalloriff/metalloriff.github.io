@@ -8,6 +8,7 @@ import ProjectItem from "../Components/General/ProjectItem";
 import InlineLoading from "../Components/InlineLoading";
 import LinkWrapper from "../Components/LinkWrapper";
 import Toasts from "../Components/Toasts";
+import Tooltip from "../Components/Tooltip";
 import "./Home.scss";
 
 export const age = Math.floor((Date.now() - new Date("05/20/2001")) / 3.154e+10);
@@ -44,9 +45,44 @@ function Projects() {
 				<div className="Tab" data-cat="games">Games</div>
 				<div className="Tab" data-cat="software">Software</div>
 				<div className="Tab" data-cat="dev">For Developers</div>
+				<div className="Tab" data-cat="side-projects">Side Projects</div>
 			</div>
 
-			{data.projects.filter(project => category === "all" || (project.categories || []).includes(category)).map((project, index) => (
+			{category === "side-projects" ? (
+				<div className="SideProjects FlexCenter">
+					{
+						data.side_projects.map((project, index) => (
+							<div className="ProjectItem SideProject Flex" key={index}>
+								<div className="TypeLabelContainer FlexCenter">
+									<h5>{project.type}</h5>
+								</div>
+
+								<div className="BodySection">
+									<h2 className="Name">
+										{project.name}
+									</h2>
+
+									<div className="Description" >
+										<div
+											dangerouslySetInnerHTML={{ __html: project.description }}
+										/>
+									</div>
+
+									<div className="Buttons">
+										{project.buttons.map((button, index) => (
+											<a href={button.link} key={index}>
+												{button.title}
+
+												{button.tooltip && <Tooltip>{button.tooltip}</Tooltip>}
+											</a>
+										))}
+									</div>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			) : data.projects.filter(project => category === "all" || (project.categories || []).includes(category)).map((project, index) => (
 				<ProjectItem {...project} key={index} />
 			))}
 
