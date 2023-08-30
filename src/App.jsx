@@ -222,7 +222,7 @@ function ShootingStar() {
 		const startIndex = Math.floor(Math.random() * corners.length);
 		const start = corners[startIndex];
 		const end = [
-			oppositeCorners[startIndex][0] === 0 ? -300 : (oppositeCorners[startIndex][0] + 300),
+			oppositeCorners[startIndex][0] === 0 ? -600 : (oppositeCorners[startIndex][0] + 600),
 			randomRange(start[1], oppositeCorners[startIndex][1])
 		];
 

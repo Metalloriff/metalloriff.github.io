@@ -264,6 +264,10 @@
 					"title": "View Source Code",
 					"disabled": false,
 					"link": "https://github.com/Metalloriff/node-widgets"
+				},
+				{
+					"title": "My Custom Widgets",
+					"https://github.com/Metalloriff/Widgets"
 				}
 			],
 			"images": [
@@ -424,6 +428,88 @@
 			"categories": [
 				"websites",
 				"software"
+			],
+			"flags": [
+				"deprecated"
+			]
+		}
+	],
+	"side_projects": [
+		{
+			"name": "anime-downloader",
+			"type": "Software (CLI)",
+			"description": "A cross-platform CLI python script to download HD anime using animension.to",
+			"buttons": [
+				{
+					"title": "Source",
+					"link": "https://github.com/Metalloriff/anime-downloader"
+				}
+			]
+		},
+		{
+			"name": "nicehash-miner-linux",
+			"type": "Software (Linux)",
+			"description": "An open source, unofficial NiceHash mining client for Linux based operating systems.",
+			"buttons": [
+				{
+					"title": "Source",
+					"link": "https://github.com/Metalloriff/nicehash-miner-linux"
+				}
+			]
+		},
+		{
+			"name": "cc-music-player",
+			"type": "Game Mod (Minecraft)",
+			"description": "A music streaming player for the ComputerCraft/CC Tweaked mod in Minecraft 1.18.2",
+			"buttons": [
+				{
+					"title": "Source",
+					"link": "https://github.com/Metalloriff/cc-music-player"
+				}
+			]
+		},
+		{
+			"name": "csharp-catbox-upload",
+			"type": "Library (C#)",
+			"description": "A very basic wrapper for uploading files to catbox.moe anonymously.",
+			"buttons": [
+				{
+					"title": "Source",
+					"link": "https://github.com/Metalloriff/csharp-catbox-upload"
+				}
+			]
+		},
+		{
+			"name": "relatable-bot",
+			"type": "Discord Bot",
+			"description": "A satire meme bot for Discord.",
+			"buttons": [
+				{
+					"title": "Source",
+					"link": "https://github.com/Metalloriff/RelatableBot"
+				}
+			]
+		},
+		{
+			"name": "dice-bot",
+			"type": "Discord Bot",
+			"description": "A Discord bot for fetching random server and bot invites from https://discordbots.org",
+			"buttons": [
+				{
+					"title": "Source",
+					"link": "https://github.com/Metalloriff/DiceBot"
+				}
+			]
+		},
+		{
+			"name": "betterdiscord-plugins",
+			"type": "BetterDiscord Plugins",
+			"description": "My ancient library of BetterDiscord plugins.",
+			"buttons": [
+				{
+					"title": "Source",
+					"link": "https://github.com/Metalloriff/BetterDiscordPlugins"
+				}
 			],
 			"flags": [
 				"deprecated"
