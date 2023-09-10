@@ -5,6 +5,7 @@ import Heart from "./Assets/TwemojiHeart.svg";
 import { getRandomKey, joinClassNames } from "./Classes/Constants";
 import { useEventListener, useMediaQuery } from "./Classes/Hooks";
 import ContextMenu from "./Components/ContextMenuHandler";
+import DarkReaderDetector from "./Components/DarkReaderDetector";
 import LinkWrapper from "./Components/LinkWrapper";
 import { Modals } from "./Components/Modals";
 import PageFooter from "./Components/PageElements/PageFooter";
@@ -282,6 +283,7 @@ export default function App() {
 			<Modals />
 			<Toasts />
 			<ContextMenu.Handler />
+			<DarkReaderDetector />
 		</div>
 	);
 }

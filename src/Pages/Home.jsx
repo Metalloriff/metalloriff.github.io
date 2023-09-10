@@ -170,7 +170,7 @@ function HeadIntro() {
 		for (const header of headers) {
 			header.style = `
 				--target-size: ${header.getBoundingClientRect().width + 20}px;
-				width: 0;
+				opacity: 0;
 				
 				animation-duration: ${(header.textContent.length || 1) * speed}ms;
 				animation-timing-function: steps(${header.textContent.length}, end);
@@ -301,8 +301,8 @@ function HeadIntro() {
 
 			<h1><br /></h1>
 
-			<h1>You can view my  </h1>
-			<h1 data-scroll-to={true}>personal projects <b>below</b>.  </h1>
+			<h1 data-scroll-to={true}>You can view my  </h1>
+			<h1>personal projects <b>below</b>.  </h1>
 
 			<h1><br /></h1>
 

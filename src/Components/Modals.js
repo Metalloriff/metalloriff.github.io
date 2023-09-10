@@ -1,12 +1,12 @@
 import React from "react";
-import "./Modals.scss";
-import ErrorBoundary from "./ErrorBoundary";
-import Toasts from "./Toasts";
-import InlineLoading from "./InlineLoading";
-import { joinClassNames } from "../Classes/Constants";
-import Tooltip from "./Tooltip";
-import LinkWrapper from "./LinkWrapper";
 import * as Feather from "react-feather";
+import { joinClassNames } from "../Classes/Constants";
+import ErrorBoundary from "./ErrorBoundary";
+import InlineLoading from "./InlineLoading";
+import LinkWrapper from "./LinkWrapper";
+import "./Modals.scss";
+import Toasts from "./Toasts";
+import Tooltip from "./Tooltip";
 
 /**
  * Pushes a component to the modal stack.
@@ -48,8 +48,8 @@ export async function copyToClipboard(text) {
 // TODO update this
 export function ImageModal({ url, getSources }) {
 	// Get the sources or create a single-item array
-	const sources = typeof(getSources) === "function" ? getSources().filter(u => u) : [url];
-	
+	const sources = typeof (getSources) === "function" ? getSources().filter(u => u) : [url];
+
 	// Create a state based on the index of the current url
 	const [index, setIndex] = React.useState(sources.indexOf(url));
 	// Create a navigate function to handle safely navigating images
@@ -59,57 +59,57 @@ export function ImageModal({ url, getSources }) {
 			: Toasts.showToast("No more images in this direction!", "Failure");
 	// Create an expanded state based on the serialized settings state
 	const [expanded, setExpandedState] = React.useState(true);
-	
+
 	// These are placeholders, I'm too lazy to add them
 	const [loading, setLoaded] = React.useState(false);
 	const [failed, setFailed] = React.useState(false);
-	
+
 	// Render bender
 	return (
 		<div className="ImageModal" onClick={e => e.target === e.currentTarget && Modals.pop()}>
 			<div className={joinClassNames("ImageContainer", [expanded, "Expanded"])}
-				 onMouseDown={Modals.pop.bind(Modals)}>
+				onMouseDown={Modals.pop.bind(Modals)}>
 				<img src={sources[index]} alt="Image failed to load"
-					 onLoad={() => (setLoaded(true), setFailed(false))}
-					 onError={() => (setLoaded(true), setFailed(true))}/>
+					onLoad={() => (setLoaded(true), setFailed(false))}
+					onError={() => (setLoaded(true), setFailed(true))} />
 			</div>
-			
+
 			<div className="Footer">
 				<div className={joinClassNames("Button Arrow Left",
 					[!sources.length || !index, "Disabled"])} onClick={() => nav(-1)}>
-					<Feather.ChevronLeft/>
+					<Feather.ChevronLeft />
 					<Tooltip>Previous Image</Tooltip>
 				</div>
-				
-				<div className="Divider"/>
-				
+
+				<div className="Divider" />
+
 				<div className="Filename">{
 					sources[index].split("?")[0].split("/").slice(-1)[0].split("_").slice(-1)[0].replaceAll("%20", " ")
 				}</div>
 
-				<div className="Divider"/>
-				
+				<div className="Divider" />
+
 				<div className="Button" onClick={() => (setExpandedState(!expanded))}>
-					{ expanded ? <Feather.Minimize2/> : <Feather.Maximize2/> }
+					{expanded ? <Feather.Minimize2 /> : <Feather.Maximize2 />}
 					<Tooltip>{expanded ? "Compress" : "Expand"}</Tooltip>
 				</div>
 
 				<div className="Button">
-					<Feather.Clipboard/>
+					<Feather.Clipboard />
 					<Tooltip>Copy URL</Tooltip>
 				</div>
 
 				<LinkWrapper className="Button" style={{ display: "block", color: "white" }}
-							 href={sources[index]}>
-					<Feather.ExternalLink/>
+					href={sources[index]}>
+					<Feather.ExternalLink />
 					<Tooltip>Open In Browser</Tooltip>
 				</LinkWrapper>
 
-				<div className="Divider"/>
-				
+				<div className="Divider" />
+
 				<div className={joinClassNames("Button Arrow Right",
 					[!sources.length || index + 1 >= sources.length, "Disabled"])} onClick={() => nav(1)}>
-					<Feather.ChevronRight/>
+					<Feather.ChevronRight />
 					<Tooltip>Next Image</Tooltip>
 				</div>
 			</div>
@@ -123,7 +123,7 @@ export function ImageModal({ url, getSources }) {
  * @param getSources? An option callback function that returns an array of URIs.
  */
 export function openImageModal(url, getSources = null) {
-	Modals.push(<ImageModal url={url} getSources={getSources}/>);
+	Modals.push(<ImageModal url={url} getSources={getSources} />);
 }
 
 /**
@@ -137,18 +137,18 @@ export function openImageModal(url, getSources = null) {
  * @returns {Promise<boolean>}
  */
 export async function openBoolModal({
-	  title = "",
-	  description = "",
-	  yesText = "Yes",
-	  noText = "No",
-	  yesColor = "#ff6666",
-	  noColor = ""
+	title = "",
+	description = "",
+	yesText = "Yes",
+	noText = "No",
+	yesColor = "#ff6666",
+	noColor = ""
 }) {
 	const response = await new Promise(resolve => {
 		Modals.push(
 			<div className="BoolModal PrimaryBg">
-				<div className="Title" dangerouslySetInnerHTML={{ __html: title }}/>
-				<div className="Description" dangerouslySetInnerHTML={{ __html: description }}/>
+				<div className="Title" dangerouslySetInnerHTML={{ __html: title }} />
+				<div className="Description" dangerouslySetInnerHTML={{ __html: description }} />
 
 				<div className="Footer">
 					<div className="Button TertiaryBg" onClick={() => resolve(false)} style={{ backgroundColor: noColor }}>{noText}</div>
@@ -157,7 +157,7 @@ export async function openBoolModal({
 			</div>
 		);
 	});
-	
+
 	Modals.pop();
 
 	return response;
@@ -173,7 +173,7 @@ export async function openStringModal(options = {}) {
 
 	const response = await new Promise(resolve => {
 		Modals.push(
-			<StringModal resolve={resolve} {...options}/>
+			<StringModal resolve={resolve} {...options} />
 		);
 	});
 
@@ -201,16 +201,16 @@ export class Modals extends React.Component {
 		// Destructure the instance state
 		const { stack, closing } = this.instance.state;
 		const modal = stack[stack.length - 1];
-		
+
 		// If there is nothing to close, return
 		if (!stack.length || !modal) return;
-		
+
 		// Push the modal to the closing state, activating the transition
 		this.instance.setState({ closing: [...closing, modal] });
-		
+
 		// Wait for the transition
 		await new Promise(r => setTimeout(r, 150));
-		
+
 		// Set the new state, removing the modal from both stack states
 		this.instance.setState({
 			stack: this.instance.state.stack.filter(m => m !== modal),
@@ -224,10 +224,9 @@ export class Modals extends React.Component {
 		// Assign the static instance variable
 		Modals.instance = this;
 	}
-	
+
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		document.documentElement.style.overflowY = this.state.stack.length ? "hidden" : null;
-		document.documentElement.style.marginRight = this.state.stack.length ? "5px" : null;
 	}
 
 	handleBackdropClick(e) {
@@ -236,27 +235,27 @@ export class Modals extends React.Component {
 
 		// If the modal has an on backdrop click prop, run it and return
 		const { stack } = this.state;
-		if (stack[stack.length - 1] && typeof(stack[stack.length - 1].props?.onBackdropClick) === "function")
+		if (stack[stack.length - 1] && typeof (stack[stack.length - 1].props?.onBackdropClick) === "function")
 			return stack[stack.length - 1].props.onBackdropClick();
-		
+
 		// K I L L
 		Modals.pop().catch(console.error.bind(console, "Failed to pop modal!"));
 	}
 
 	render() {
 		const { stack, closing } = this.state;
-		
+
 		return (
 			<div className={"ModalStack" + (stack.length > closing.length ? " Active" : "")}>
-				{ stack.map((modal, id) => (
+				{stack.map((modal, id) => (
 					<ErrorBoundary>
 						<div className={"ModalContainer" +
-							 (~closing.indexOf(modal) || id < stack.length - 1 ? " Closing" : "")}
-							 key={id}
-							 onMouseDown={this.handleBackdropClick.bind(this)}
-							 style={{ zIndex: id * 10 }}>{ modal }</div>
+							(~closing.indexOf(modal) || id < stack.length - 1 ? " Closing" : "")}
+							key={id}
+							onMouseDown={this.handleBackdropClick.bind(this)}
+							style={{ zIndex: id * 10 }}>{modal}</div>
 					</ErrorBoundary>
-				)) }
+				))}
 			</div>
 		);
 	}
@@ -266,17 +265,17 @@ export function StringModal(props) {
 	const { title = "", description = "", yesText = "Confirm", noText = "Cancel", yesColor = "", noColor = "", value = "", onChange = null, rich = false, resolve, id } = props;
 	const [no, setNoState] = React.useState(false);
 	const [yes, setYesState] = React.useState(false);
-	
+
 	return (
 		<div className="StringModal PrimaryBg">
-			<div className="Title" dangerouslySetInnerHTML={{ __html: title }}/>
-			<div className="Description" dangerouslySetInnerHTML={{ __html: description }}/>
-			
-			<input id={id} className="Field TertiaryBg" defaultValue={value} onChange={onChange}/>
+			<div className="Title" dangerouslySetInnerHTML={{ __html: title }} />
+			<div className="Description" dangerouslySetInnerHTML={{ __html: description }} />
+
+			<input id={id} className="Field TertiaryBg" defaultValue={value} onChange={onChange} />
 
 			<div className="Footer">
-				<div className="Button TertiaryBg" onClick={() => (resolve(null), setNoState(true))} style={{ backgroundColor: noColor }}>{ no ? <InlineLoading/> : noText }</div>
-				<div className="Button TertiaryBg" onClick={() => (resolve(document.getElementById(id).value), setYesState(true))} style={{ backgroundColor: yesColor }}>{ yes ? <InlineLoading/> : yesText }</div>
+				<div className="Button TertiaryBg" onClick={() => (resolve(null), setNoState(true))} style={{ backgroundColor: noColor }}>{no ? <InlineLoading /> : noText}</div>
+				<div className="Button TertiaryBg" onClick={() => (resolve(document.getElementById(id).value), setYesState(true))} style={{ backgroundColor: yesColor }}>{yes ? <InlineLoading /> : yesText}</div>
 			</div>
 		</div>
 	);
