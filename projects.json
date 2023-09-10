@@ -189,7 +189,7 @@
 		{
 			"name": "Sucralose!",
 			"type": "Website",
-			"description": "A sweeter way to use e621!<br/><br/>A humble front-end replacement for <a href=\"https://e621.net\">e621.net</a> using their API/back-end.",
+			"description": "A sweeter way to use e621!<br/><br/>A humble front-end replacement for <a href=\"https://e621.net\">e621.net</a> using their API/back-end.<br/><br/>The goal is to provide a smoother, more user-friendly and mobile-friendly experience, along with extra customization.",
 			"buttons": [
 				{
 					"title": "Visit Website",
@@ -209,10 +209,15 @@
 				}
 			],
 			"images": [
-				"https://i.imgur.com/ijd0JXI.jpg",
+				"https://i.imgur.com/L87tQcM.png",
 				"https://i.imgur.com/Vv642Fg.jpg",
-				"https://i.imgur.com/woa6Feg.jpg",
+				"https://i.imgur.com/dmfuskc.png",
+				"https://i.imgur.com/0IBRFZZ.png",
+				"https://i.imgur.com/Q4pxGIy.png",
 				"https://i.imgur.com/cS5a1qW.png",
+				"https://i.imgur.com/ErYaCNu.png",
+				"https://i.imgur.com/Vv642Fg.jpg",
+				"https://i.imgur.com/N9rOOu4.png",
 				"https://i.imgur.com/2pSxYT5.png",
 				"https://i.imgur.com/XPFOffR.png",
 				"https://i.imgur.com/tv1Vz6w.jpg"
