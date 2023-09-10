@@ -189,7 +189,7 @@
 		{
 			"name": "Sucralose!",
 			"type": "Website",
-			"description": "A sweeter way to use e621!<br/><br/>A humble front-end replacement for <a href=\"https://e621.net\">e621.net</a> using their API/back-end.<br/><br/>The goal is to provide a smoother, more user-friendly and mobile-friendly experience, along with extra customization.",
+			"description": "A sweeter way to use e621!<br/><br/>A humble front-end replacement for <a href=\"https://e621.net\">e621.net</a> using their API/back-end.<br/><br/>The goal is to provide a smoother, more user-friendly and mobile-friendly experience, along with extra customization.<br/><br/>Read more <a href=\"https://github.com/Metalloriff/sucralose\">here</a>.",
 			"buttons": [
 				{
 					"title": "Visit Website",
