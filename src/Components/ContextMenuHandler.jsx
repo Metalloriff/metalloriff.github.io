@@ -1,8 +1,7 @@
 import React, { createRef } from "react";
 import ReactDOM from "react-dom";
+import { ChevronRight } from "react-feather";
 import "./ContextMenuHandler.scss";
-
-import ChevronIcon from "../Icons/Chevron.svg";
 import ErrorBoundary from "./ErrorBoundary";
 
 function exclude(object, ...exclusions) {
@@ -39,7 +38,7 @@ class ContextMenu extends React.Component {
 		return (
 			<ErrorBoundary>
 				<div className="ContextMenu" {...this.props} ref={this.ref}>
-					{ this.props.children }
+					{this.props.children}
 				</div>
 			</ErrorBoundary>
 		);
@@ -48,12 +47,12 @@ class ContextMenu extends React.Component {
 
 ContextMenu.Handler = class extends React.Component {
 	static ref = createRef();
-	
+
 	render() {
 		return (
 			<ErrorBoundary>
 				<div ref={ContextMenu.Handler.ref} className="ContextMenuWrapper MainContextMenuContainer">
-					
+
 				</div>
 			</ErrorBoundary>
 		);
@@ -63,13 +62,13 @@ ContextMenu.Handler = class extends React.Component {
 ContextMenu.Wrapper = class extends React.Component {
 	state = { menu: null, open: false };
 	ref = createRef();
-	
+
 	get publicProps() {
 		return exclude(this.props, "menu", "openOnClick", "wrapperClassName", "overrideX", "overrideY");
 	}
 
 	handleContextMenu = e => {
-		if (typeof(e.preventDefault) === "function")
+		if (typeof (e.preventDefault) === "function")
 			e.preventDefault();
 
 		if (ContextMenu.activeWrapper) {
@@ -79,28 +78,30 @@ ContextMenu.Wrapper = class extends React.Component {
 		}
 
 		ContextMenu.activeWrapper = this;
-		
+
 		let top = this.props.menu.props.overrideY?.() || e.clientY;
 		let left = this.props.menu.props.overrideX?.() || e.clientX;
-		
+
 		while (left + 200 > window.innerWidth)
 			left -= 10;
-		
-		this.setState({ menu: ReactDOM.createPortal(
+
+		this.setState({
+			menu: ReactDOM.createPortal(
 				<div className="ContextMenuContainer SecondaryBg" {...this.publicProps} style={{
 					position: "fixed",
-					top, left 
-				}}>{ this.props.menu }</div>, ContextMenu.Handler.ref.current), open: true });
+					top, left
+				}}>{this.props.menu}</div>, ContextMenu.Handler.ref.current), open: true
+		});
 	}
 
 	async componentDidUpdate(prevProps, prevState, snapshot) {
 		if (ContextMenu.activeWrapper === this && !this.state.open)
 			ContextMenu.activeWrapper = null;
-		
+
 		if (this.state.open && this.ref.current) {
-			const [ menu ] = document.getElementsByClassName("ContextMenuContainer");
+			const [menu] = document.getElementsByClassName("ContextMenuContainer");
 			const rect = menu.getBoundingClientRect();
-			
+
 			menu.style.transform = rect.y + rect.height > window.innerHeight
 				? `translateY(${window.innerHeight - (rect.y + rect.height) - 20}px)`
 				: null;
@@ -111,16 +112,16 @@ ContextMenu.Wrapper = class extends React.Component {
 		return this.props.menu ? (
 			<ErrorBoundary>
 				<div ref={this.ref} className={"ContextMenuWrapper " + (this.props.wrapperClassName || "")} onClick={this.props.openOnClick ? e => {
-					if (typeof(e.target.onClick) === "function")
+					if (typeof (e.target.onClick) === "function")
 						return;
-					
+
 					this.handleContextMenu(this.props.openOnClick());
 				} : null}
-					 {...this.publicProps} onContextMenu={this.handleContextMenu}>
-					{ this.props.children }
-					
+					{...this.publicProps} onContextMenu={this.handleContextMenu}>
+					{this.props.children}
+
 					<ErrorBoundary>
-						{ this.state.open ? this.state.menu : null }
+						{this.state.open ? this.state.menu : null}
 					</ErrorBoundary>
 				</div>
 			</ErrorBoundary>
@@ -132,7 +133,7 @@ ContextMenu.Item = class extends React.Component {
 	handleClick = e => {
 		e.preventDefault();
 		e.stopPropagation();
-		
+
 		if (ContextMenu.activeWrapper && this.props.autoClose) {
 			ContextMenu.activeWrapper.setState({ menu: null, open: false });
 		}
@@ -150,9 +151,9 @@ ContextMenu.Item = class extends React.Component {
 
 		return (
 			<div className="ContextMenuItem" {...props} onClick={this.handleClick}>
-				{ this.props.icon }
-				
-				{ this.props.children }
+				{this.props.icon}
+
+				{this.props.children}
 			</div>
 		);
 	}
@@ -182,7 +183,7 @@ ContextMenu.SubMenuItem = class extends React.Component {
 			this.props.onClick(this);
 		}
 	}
-	
+
 	mount(menu) {
 		if (!menu) return;
 		const rect = menu.getBoundingClientRect();
@@ -190,7 +191,7 @@ ContextMenu.SubMenuItem = class extends React.Component {
 		menu.style.transform = rect.y + rect.height > window.innerHeight
 			? `translateY(${window.innerHeight - (rect.y + rect.height) - 20}px)`
 			: null;
-		
+
 		if (rect.x + rect.width > window.innerWidth) {
 			menu.style.left = "unset";
 			menu.style.right = "100%";
@@ -206,15 +207,15 @@ ContextMenu.SubMenuItem = class extends React.Component {
 
 		return (
 			<div className="ContextMenuItem HasSubMenu" {...props} onClick={this.handleClick} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-				{ this.props.icon }
-				{ this.props.label } <img className="ContextSubMenuChevron" src={ChevronIcon}/>
-				{ this.state.open ? (
+				{this.props.icon}
+				{this.props.label} <ChevronRight className="ContextSubMenuChevron" />
+				{this.state.open ? (
 					<div className="ContextMenuContainer SubMenuContainer SecondaryBg" ref={this.mount}>
 						<div className="ContextMenu SubMenu">
-							{ this.props.children }
+							{this.props.children}
 						</div>
 					</div>
-				) : null }
+				) : null}
 			</div>
 		)
 	}
@@ -250,9 +251,9 @@ ContextMenu.ToggleItem = class extends React.Component {
 		return (
 			<div className="ContextMenuItem ToggleItem" {...props} onClick={this.callback}>
 				<div className={"ToggleBox" + (this.state.checked ? " Checked" : "")}>
-					{ this.state.checked ? (<div className="ToggleBoxTick"/>) : null }
+					{this.state.checked ? (<div className="ToggleBoxTick" />) : null}
 				</div>
-				{ this.props.children }
+				{this.props.children}
 			</div>
 		)
 	}
@@ -261,7 +262,7 @@ ContextMenu.ToggleItem = class extends React.Component {
 ContextMenu.Divider = class extends React.Component {
 	render() {
 		return (
-			<div className="ContextMenuDivider" {...this.props}/>
+			<div className="ContextMenuDivider" {...this.props} />
 		)
 	}
 }

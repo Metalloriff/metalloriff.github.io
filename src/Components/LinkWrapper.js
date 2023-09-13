@@ -1,12 +1,21 @@
-import React from "react";
+import { ActionTypes } from "../Classes/Constants";
+import { dispatcher } from "../Classes/Dispatcher";
 import "./LinkWrapper.scss";
 
-export default class extends React.Component {
-	render() {
-		return (
-			<a className="LinkWrapper" {...this.props}>
-				{ this.props.children }
-			</a>
-		);
+export default function LinkWrapper({ children, ...props }) {
+	function handleClick(e) {
+		dispatcher.dispatch({
+			type: ActionTypes.UPDATE_ROUTE,
+			path: props.href
+		});
+
+		e.preventDefault();
+		props.onClick?.(e);
 	}
+
+	return (
+		<a className="LinkWrapper" onClick={handleClick} {...props}>
+			{children}
+		</a>
+	);
 }

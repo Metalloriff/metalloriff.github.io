@@ -1,11 +1,14 @@
 import React from "react";
 import * as Feather from "react-feather";
-import { joinClassNames } from "../Classes/Constants";
+import { ActionTypes, getRandomKey, joinClassNames } from "../Classes/Constants";
+import { dispatcher } from "../Classes/Dispatcher";
+import { useEventListener, useOnUnmount } from "../Classes/Hooks";
+import QueryManager from "../Classes/QueryManager";
 import ErrorBoundary from "./ErrorBoundary";
 import InlineLoading from "./InlineLoading";
 import LinkWrapper from "./LinkWrapper";
 import "./Modals.scss";
-import Toasts from "./Toasts";
+import Toasts, { ToastType } from "./Toasts";
 import Tooltip from "./Tooltip";
 
 /**
@@ -34,7 +37,7 @@ export async function copyToClipboard(text) {
 	try {
 		await window.navigator.clipboard.writeText(text);
 
-		Toasts.showToast(<span><b>{text.length >= 100 ? text.substr(0, 100) + "..." : text}</b> copied to clipboard</span>, "Success");
+		Toasts.showToast(<span><b>{text.length >= 100 ? text.substr(0, 100) + "..." : text}</b> copied to clipboard</span>, ToastType.Success);
 	}
 	catch (e) {
 		openStringModal({
@@ -45,33 +48,210 @@ export async function copyToClipboard(text) {
 	}
 }
 
-// TODO update this
-export function ImageModal({ url, getSources }) {
+function ImageComponent({ image, setLoaded, setFailed, className, onClick, isPreview = false }) {
+	const ref = React.useRef();
+	const [loaded, _setLoaded] = React.useState(false);
+
+	const events = {
+		onLoad: e => {
+			e.target.decode().then(() => {
+				setLoaded?.(true);
+				setFailed?.(false);
+				_setLoaded(true);
+			});
+		},
+		onError: () => (setLoaded?.(true), setFailed?.(true), _setLoaded(true)),
+		onClick
+	};
+
+	useOnUnmount(() => {
+		if (ref.current) {
+			ref.current.pause();
+		}
+	});
+
+	if (!image) return null;
+
+	return /\.webm$/.test(image) && !isPreview
+		? <video
+			ref={ref}
+			src={image}
+			controls={!className}
+			loop
+			muted
+			autoPlay={!isPreview}
+			className={className}
+			{...events}
+		/> : (
+			<>
+				<img src={image} alt="Preview failed to load"
+					style={{ display: loaded && !className ? "none" : null }} className={className} />
+
+				{!className && !isPreview && <img src={image} alt="Image failed to load" className={className}
+					style={{ display: loaded ? null : "none" }} {...events} />}
+
+				{/* {!loaded && (
+					<div className="LoadingIndicator FlexCenter" ref={e => {
+						if (!e) return;
+
+						if (loaded) setTimeout(() => e.classList.remove("Visible"), 0);
+						else setTimeout(() => e.classList.add("Visible"), 0);
+					}}>
+						<Loader className="Spinner" />
+					</div>
+				)} */}
+			</>
+		);
+}
+
+export function ImageModal({ url, getSources, buttons }) {
 	// Get the sources or create a single-item array
-	const sources = typeof (getSources) === "function" ? getSources().filter(u => u) : [url];
+	const sources = typeof (getSources) === "function" ? getSources().filter(Boolean) : [url];
+
+	const container = React.useRef();
 
 	// Create a state based on the index of the current url
-	const [index, setIndex] = React.useState(sources.indexOf(url));
+	const [index, _setIndex] = React.useState(sources.findIndex(f => f === url));
+	function setIndex(index) {
+		// We don't talk about this in my job interview.
+		document.querySelector(`[src="${sources[index]}"]`)?.scrollIntoView();
+
+		_setIndex(index);
+	}
+
+	// Handle the history state.
+	React.useEffect(() => {
+		return () => {
+			setTimeout(() => {
+				if (QueryManager.get("modalState") === "open") {
+					window.history.back();
+
+					dispatcher.dispatch({
+						type: ActionTypes.UPDATE_PAGE
+					});
+				}
+			}, 0);
+		};
+	}, []);
+
+	React.useEffect(() => {
+		container && container.current.style.setProperty("--translation", "0");
+	}, [container, index]);
+
 	// Create a navigate function to handle safely navigating images
 	const nav = dir =>
 		sources[index + dir]
 			? (setLoaded(false), setFailed(false), setIndex(index + dir))
 			: Toasts.showToast("No more images in this direction!", "Failure");
-	// Create an expanded state based on the serialized settings state
-	const [expanded, setExpandedState] = React.useState(true);
 
 	// These are placeholders, I'm too lazy to add them
-	const [loading, setLoaded] = React.useState(false);
+	const [loaded, setLoaded] = React.useState(false);
 	const [failed, setFailed] = React.useState(false);
+
+	// Handle keyboard navigation/controls.
+	useEventListener("keydown", ({ key }) => {
+		switch (key) {
+			case "Escape": return Modals.pop();
+			case "ArrowLeft": case "a": return nav(-1);
+			case "ArrowRight": case "d": return nav(1);
+			// This is bad practice. Don't do this.
+			case "ArrowUp": case "w": return window.currentModalEvents?.vote(1);
+			case "ArrowDown": case "s": return window.currentModalEvents?.vote(-1);
+			case "f": return window.currentModalEvents?.favorite();
+		}
+	}, { dependencies: [index] });
+
+	// Handle touch controls
+	const mobileEvents = {
+		onTouchStart: e => {
+			const tapX = e.touches[0].clientX;
+			const tapY = e.touches[0].clientY;
+
+			let translation = 0;
+
+			const handler = e => {
+				const alias = 50;
+				translation = e.touches[0].clientX - tapX;
+
+				if (Math.abs(translation) < alias) return;
+				if (translation < 0) translation += alias;
+				else translation -= alias;
+
+				translation /= window.innerWidth;
+				translation *= 100;
+
+				container.current.style.setProperty(
+					"--translation",
+					translation
+				);
+			};
+
+			document.addEventListener("touchmove", handler);
+
+			let remove;
+			document.addEventListener("touchend", remove = () => {
+				setTimeout(() => {
+					const translation = parseFloat(container.current.style.getPropertyValue("--translation"));
+					container.current.style.setProperty(
+						"--translation",
+						translation > 5
+							? "100"
+							: translation < -5
+								? "-100"
+								: "0"
+					);
+
+					document.removeEventListener("touchmove", handler);
+					document.removeEventListener("touchend", remove);
+
+					setTimeout(() => {
+						if (!container.current) return;
+
+						const translation = parseFloat(container.current.style.getPropertyValue("--translation"));
+						if (translation >= 75) {
+							nav(-1);
+						}
+						else if (translation <= -75) {
+							nav(1);
+						}
+					}, 200);
+				}, 100);
+			});
+		}
+	};
 
 	// Render bender
 	return (
-		<div className="ImageModal" onClick={e => e.target === e.currentTarget && Modals.pop()}>
-			<div className={joinClassNames("ImageContainer", [expanded, "Expanded"])}
-				onMouseDown={Modals.pop.bind(Modals)}>
-				<img src={sources[index]} alt="Image failed to load"
-					onLoad={() => (setLoaded(true), setFailed(false))}
-					onError={() => (setLoaded(true), setFailed(true))} />
+		<div ref={container} className="ImageModal" onClick={e => e.target === e.currentTarget && Modals.pop()} {...mobileEvents}>
+			<div className={joinClassNames("ImageContainer", "Expanded")}>
+				<ImageComponent
+					key={getRandomKey()}
+					image={sources[index - 1]}
+					setLoaded={setLoaded}
+					setFailed={setFailed}
+
+					className="Previous"
+					onClick={() => nav(-1)}
+					isPreview
+				/>
+
+				<ImageComponent
+					key={getRandomKey()}
+					image={sources[index]}
+					setLoaded={setLoaded}
+					setFailed={setFailed}
+				/>
+
+				<ImageComponent
+					key={getRandomKey()}
+					image={sources[index + 1]}
+					setLoaded={setLoaded}
+					setFailed={setFailed}
+
+					className="Next"
+					onClick={() => nav(1)}
+					isPreview
+				/>
 			</div>
 
 			<div className="Footer">
@@ -83,27 +263,20 @@ export function ImageModal({ url, getSources }) {
 
 				<div className="Divider" />
 
-				<div className="Filename">{
-					sources[index].split("?")[0].split("/").slice(-1)[0].split("_").slice(-1)[0].replaceAll("%20", " ")
-				}</div>
+				{buttons?.(index) ?? (
+					<>
+						<div className="Button">
+							<Feather.Clipboard />
+							<Tooltip>Copy URI</Tooltip>
+						</div>
 
-				<div className="Divider" />
-
-				<div className="Button" onClick={() => (setExpandedState(!expanded))}>
-					{expanded ? <Feather.Minimize2 /> : <Feather.Maximize2 />}
-					<Tooltip>{expanded ? "Compress" : "Expand"}</Tooltip>
-				</div>
-
-				<div className="Button">
-					<Feather.Clipboard />
-					<Tooltip>Copy URL</Tooltip>
-				</div>
-
-				<LinkWrapper className="Button" style={{ display: "block", color: "white" }}
-					href={sources[index]}>
-					<Feather.ExternalLink />
-					<Tooltip>Open In Browser</Tooltip>
-				</LinkWrapper>
+						<LinkWrapper className="Button" style={{ display: "block", color: "white" }}
+							href={sources[index]}>
+							<Feather.ExternalLink />
+							<Tooltip>Open In New Tab</Tooltip>
+						</LinkWrapper>
+					</>
+				)}
 
 				<div className="Divider" />
 
@@ -141,7 +314,7 @@ export async function openBoolModal({
 	description = "",
 	yesText = "Yes",
 	noText = "No",
-	yesColor = "#ff6666",
+	yesColor = "var(--busy-color)",
 	noColor = ""
 }) {
 	const response = await new Promise(resolve => {
@@ -223,11 +396,19 @@ export class Modals extends React.Component {
 	componentDidMount() {
 		// Assign the static instance variable
 		Modals.instance = this;
+
+		document.addEventListener("keydown", this.handleKey);
 	}
 
-	componentDidUpdate(prevProps, prevState, snapshot) {
-		document.documentElement.style.overflowY = this.state.stack.length ? "hidden" : null;
+	componentWillUnmount() {
+		document.removeEventListener("keydown", this.handleKey);
 	}
+
+	handleKey = e => {
+		if (e.key === "Escape") {
+			Modals.pop();
+		}
+	};
 
 	handleBackdropClick(e) {
 		// Ensure that we're actually clicking the modal background
@@ -248,10 +429,9 @@ export class Modals extends React.Component {
 		return (
 			<div className={"ModalStack" + (stack.length > closing.length ? " Active" : "")}>
 				{stack.map((modal, id) => (
-					<ErrorBoundary>
+					<ErrorBoundary key={id}>
 						<div className={"ModalContainer" +
 							(~closing.indexOf(modal) || id < stack.length - 1 ? " Closing" : "")}
-							key={id}
 							onMouseDown={this.handleBackdropClick.bind(this)}
 							style={{ zIndex: id * 10 }}>{modal}</div>
 					</ErrorBoundary>

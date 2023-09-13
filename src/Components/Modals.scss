@@ -2,38 +2,44 @@
 
 .BaseModal {
 	position: relative;
-	
+
 	width: 800px;
 	max-width: 90vw;
 	height: 600px;
 	max-height: 90vh;
-	
+
 	border-radius: $secondaryBorderRadius;
 	padding: 10px;
-	
+
 	overflow-x: hidden;
 	overflow-y: auto;
 }
 
 .ModalStack {
 	position: fixed;
-	top: 0; left: 0; bottom: 0; right: 0;
-	
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
 	z-index: 10000;
-	
-	> .ModalContainer {
+
+	>.ModalContainer {
 		position: fixed;
-		top: 0; left: 0; bottom: 0; right: 0;
-		
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		
+
 		animation-name: ModalAttach;
 		animation-timing-function: steps(60);
 		animation-duration: 150ms;
 		animation-fill-mode: forwards;
-		
+
 		&.Closing {
 			animation-name: ModalDetach;
 			animation-timing-function: steps(60);
@@ -41,20 +47,21 @@
 			animation-fill-mode: forwards;
 		}
 	}
-	
+
 	will-change: background-color;
-	transition: background-color 150ms steps(40);
+	transition: background-color 150ms steps(40), backdrop-filter 150ms steps(40);
 	pointer-events: none;
-	
+
 	&.Active {
 		background-color: rgba(black, 0.5);
+		backdrop-filter: blur(10px);
 		pointer-events: all;
 	}
 }
 
 @keyframes ModalAttach {
 	0% {
-		transform: scale(0.75);
+		transform: scale(1.1);
 		opacity: 0;
 	}
 
@@ -71,89 +78,195 @@
 	}
 
 	100% {
-		transform: scale(0.75);
+		transform: scale(1.1);
 		opacity: 0;
 	}
 }
 
 .ClipboardModal {
-	 overflow: hidden;
-	 color: white;
-	 font-size: 1.5em;
+	overflow: hidden;
+	color: white;
+	font-size: 1.5em;
 
-	 padding: 20px;
-	 border-radius: $primaryBorderRadius;
+	padding: 20px;
+	border-radius: $primaryBorderRadius;
 
-	 height: 30px;
- }
+	height: 30px;
+}
 
 .ImageModal {
 	width: 90vw;
 	height: 90vh;
-	
+
 	display: flex;
 	flex-direction: column;
-	
+
 	align-items: center;
 	justify-content: center;
-	
+
 	.ImageContainer {
 		position: relative;
-		
+
 		max-height: 80vh;
 
-		img {
+		.NotesContainer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+
+			pointer-events: none;
+
+			.Note {
+				position: absolute;
+				pointer-events: all;
+
+				background: rgba(black, 0.2);
+				border-radius: 2px;
+
+				cursor: pointer;
+
+				.NoteBody {
+					position: absolute;
+					background: rgba(black, 0.5);
+					backdrop-filter: blur(7px) invert(0.25);
+					padding: 7px;
+					border-radius: 2px;
+
+					opacity: 0;
+					transform: scale(0.98);
+					transition: opacity $ft, transform $ft;
+					pointer-events: none;
+				}
+
+				&:hover .NoteBody {
+					opacity: 1;
+					transform: none;
+				}
+			}
+		}
+
+		img,
+		video,
+		.jsgif,
+		canvas {
 			max-width: 90vw;
 			height: 100%;
 
 			object-fit: contain;
+
+			transform: translateX(calc(1% * var(--translation)));
+			transition: transform 100ms linear;
+
+			border-radius: var(--secondary-border-radius);
+
+			&.Previous,
+			&.Next {
+				position: absolute;
+
+				filter: brightness(0.4);
+			}
+
+			&.Previous {
+				transform: translateX(calc(calc(1% * var(--translation)) - 100%)) scale(calc(calc(var(--translation) / 800) + 0.8));
+
+				filter: brightness(calc(calc(var(--translation) / 200) + 0.4));
+			}
+
+			&.Next {
+				transform: translateX(calc(1% * var(--translation))) scale(calc(calc(var(--translation) / -800) + 0.8));
+
+				filter: brightness(calc(calc(var(--translation) / -200) + 0.4));
+			}
 		}
-		
+
 		video {
-			max-width: 90vw;
-			height: 100%;
-			
-			object-fit: contain;
 			pointer-events: all;
-			
+
 			z-index: 10;
 		}
-		
+
 		&.Expanded {
 			height: 80vh;
 		}
 	}
-	
+
+	.LoadingIndicator {
+		background: rgba(black, 0.1);
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
+		.Spinner {
+			width: 40px;
+			height: 40px;
+		}
+
+		opacity: 0;
+
+		pointer-events: none;
+		transition: opacity $ft;
+
+		&.Visible {
+			opacity: 1;
+		}
+	}
+
 	.Footer {
 		display: flex;
 		margin-top: 25px;
-		
+
+		position: relative;
+
 		align-items: center;
 		justify-content: center;
-		
+
 		background-color: $primaryBG;
-		padding: 10px;
-		
+		padding: 7px;
+
+		border-radius: var(--secondary-border-radius);
+
+		min-width: 250px;
+
 		.Divider {
 			background-color: $primaryHover;
-			
+
 			width: 2px;
 			height: 30px;
-			
+
 			border-radius: 100px;
-			
-			margin: 0 10px;
+
+			margin: 0 auto;
 		}
-		
+
 		.Filename {
 			margin: 0 10px;
 		}
-		
+
 		.Button {
 			padding: 5px 10px;
-			
+
 			cursor: pointer;
-			
+			margin: auto;
+
+			border-radius: var(--primary-border-radius);
+
+			&:hover {
+				background: rgba(white, 0.05);
+			}
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
 			&.Disabled {
 				opacity: 0.15;
 				cursor: not-allowed;
@@ -162,29 +275,31 @@
 	}
 }
 
-.BoolModal, .StringModal {
+.BoolModal,
+.StringModal {
 	position: relative;
-	font-size: 1.2em;
 
-	width: 40vw;
+	width: 500px;
+	max-width: 90vw;
 	height: max-content;
 
-	padding: 20px;
+	padding: 15px;
 	border-radius: $primaryBorderRadius;
 
 	display: flex;
 	flex-direction: column;
 
+	background-color: $primaryBG;
+
 	.Title {
-		text-align: center;
 		font-weight: bolder;
 
-		margin: -10px auto;
+		font-size: 1.2em;
+		color: $primaryColor;
 	}
 
 	.Description {
 		margin-top: 20px;
-		text-align: center;
 	}
 
 	.Field {
@@ -201,6 +316,8 @@
 		flex-grow: 1;
 
 		white-space: pre-line;
+
+		background-color: var(--darken-bg);
 		color: white;
 	}
 
@@ -212,8 +329,11 @@
 		display: flex;
 		flex-direction: row;
 
+		margin-top: 5px;
+
 		.Button {
-			background: $primaryColor;
+			background: $tertiaryBG;
+			color: white;
 			flex-grow: 1;
 
 			text-align: center;
@@ -225,45 +345,73 @@
 
 			cursor: pointer;
 
-			&:First-Child { margin-right: 10px; }
-			&:Last-Child { margin-left: 10px; }
+			&:first-child {
+				margin-right: 10px;
+			}
+
+			&:last-child {
+				margin-left: 10px;
+			}
 		}
-	}
-}
-
-.BoolModal {
-	width: 30vw;
-
-	.Footer {
-		margin-top: 5px;
 	}
 }
 
 .LoadingModal {
 	position: relative;
-	
+
 	width: 250px;
 	height: 270px;
 	padding: 20px 0;
-	
+
 	border-radius: $secondaryBorderRadius;
-	
+
 	.LoadingCrescentContainer {
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
 	}
-	
+
 	.Title {
 		position: absolute;
-		left: 0; bottom: 10px; right: 0;
-		
+		left: 0;
+		bottom: 10px;
+		right: 0;
+
 		text-align: center;
 	}
 }
 
-#root .Mobile {
-	.BoolModal, .StringModal {
-		width: 80vw;
+.FullScreenModal {
+	position: relative;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-color: $primaryBG;
+
+	>.Buttons {
+		position: fixed;
+		top: 15px;
+		right: 20px;
+
+		z-index: 20;
+
+		>.Button {
+			width: 30px;
+			height: 30px;
+			padding: 10px;
+			border-radius: 100%;
+
+			margin-left: 10px;
+
+			background-color: var(--darken-bg);
+			backdrop-filter: blur(20px);
+
+			cursor: pointer;
+
+			&:hover {
+				color: white;
+			}
+		}
 	}
 }

@@ -4,6 +4,7 @@ import "./App.scss";
 import Heart from "./Assets/TwemojiHeart.svg";
 import { getRandomKey, joinClassNames } from "./Classes/Constants";
 import { useEventListener, useMediaQuery } from "./Classes/Hooks";
+import RoutesStore from "./Classes/Stores/RoutesStore";
 import ContextMenu from "./Components/ContextMenuHandler";
 import DarkReaderDetector from "./Components/DarkReaderDetector";
 import LinkWrapper from "./Components/LinkWrapper";
@@ -20,8 +21,10 @@ window.addEventListener("popstate", () => {
 });
 
 function PageElement() {
-	// Store the formatted hash in a variable.
-	const [hash, ...args] = window.location.pathname.split("/").slice(1);
+	// Use the page route state
+	RoutesStore.useState(() => RoutesStore.getCurrentRoute());
+	// Get the hash and arguments from the formatted route
+	const [hash, ...args] = RoutesStore.getFormattedRoute();
 
 	// Set the app hash value.
 	App.hash = hash;
@@ -147,13 +150,10 @@ function PageElement() {
 	switch (hash) {
 		default: return <HomePage />;
 
-		case "contact": {
+		case "contact":
 			return <ContactPage />;
-		}
-
-		case "donate": {
+		case "donate":
 			return <DonatePage />;
-		}
 	}
 }
 
@@ -273,6 +273,42 @@ export default function App() {
 					<ShootingStar />
 					<ShootingStar />
 					<ShootingStar />
+				</div>
+
+				<div className="CrescentContainer">
+					<div className="Crescent" />
+				</div>
+
+				<div className="Clouds">
+					{Array.from(Array(20).keys()).map(key => (
+						<div
+							className="CloudWrapper"
+							key={key}
+							style={{
+								"--size": randomRange(250, 600)
+							}}
+						>
+							<div
+								className="Cloud"
+								style={{
+									animationDuration: `${randomRange(24, 45)}s`,
+									animationDelay: `-${randomRange(3, 50)}s`
+								}}
+							>
+								{Array.from(Array(randomRange(2, 7)).keys()).map(key => (
+									<div
+										key={key}
+										className="Sec"
+
+										style={{
+											animationDuration: `${randomRange(8, 35)}s`,
+											animationDelay: `-${randomRange(3, 50)}s`
+										}}
+									/>
+								))}
+							</div>
+						</div>
+					))}
 				</div>
 
 				<PageElement />

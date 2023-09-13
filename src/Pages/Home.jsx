@@ -332,42 +332,6 @@ export function randomRange(min, max) {
 export default function HomePage() {
 	return (
 		<div className="HomePage">
-			<div className="CrescentContainer">
-				<div className="Crescent" />
-			</div>
-
-			<div className="Clouds">
-				{Array.from(Array(20).keys()).map(key => (
-					<div
-						className="CloudWrapper"
-						key={key}
-						style={{
-							"--size": randomRange(250, 600)
-						}}
-					>
-						<div
-							className="Cloud"
-							style={{
-								animationDuration: `${randomRange(24, 45)}s`,
-								animationDelay: `-${randomRange(3, 50)}s`
-							}}
-						>
-							{Array.from(Array(randomRange(2, 7)).keys()).map(key => (
-								<div
-									key={key}
-									className="Sec"
-
-									style={{
-										animationDuration: `${randomRange(8, 35)}s`,
-										animationDelay: `-${randomRange(3, 50)}s`
-									}}
-								/>
-							))}
-						</div>
-					</div>
-				))}
-			</div>
-
 			<Header />
 
 			<div className="MainSection">

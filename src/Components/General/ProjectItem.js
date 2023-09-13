@@ -128,6 +128,16 @@ export default function ProjectItem(project) {
 				<h2 className="Name FlexCenter">
 					{name}
 
+					{flags.includes("new") && (
+						<div className="Tag" style={{ color: "var(--cf-purple)" }}>
+							NEW!
+
+							<Tooltip>
+								This project is new!
+							</Tooltip>
+						</div>
+					)}
+
 					{flags.includes("wip") && (
 						<div className="Tag" style={{ color: "var(--cf-green)" }}>
 							WIP
