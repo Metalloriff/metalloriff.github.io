@@ -14,9 +14,19 @@ export default function DonatePage() {
 			<Header />
 
 			<div className="Contents">
+				<Window title="How your donations help ♥">
+					<p>
+						I strive to make as many projects as possible free of charge. Receiving donations helps me upkeep any database/server costs for projects that require it. Along with the yearly charge for domains.
+					</p>
+
+					<p>
+						My aspiration in life is to earn enough income via donations to keep making these free projects. Donations from those who can afford it help me to keep my projects free for those who can't.
+					</p>
+				</Window>
+
 				<Window title="PayPal">
 					<p>
-						PayPal is most convenient if you'd like to support me. You can find my PayPal.me link below, or if it's more convenient for you, you can simply copy my email address directly.
+						You can find my PayPal.me link below, or you may copy my PayPal email address directly.
 					</p>
 
 					<div className="Links FlexCenter">
@@ -24,7 +34,7 @@ export default function DonatePage() {
 							PayPal.me
 						</a>
 
-						<a href="#" onClick={() => copyToClipboard("itbchannel@gmail.com")}>
+						<a href="#" onClick={() => copyToClipboard("metalloriff@proton.me")}>
 							Copy Email Address
 						</a>
 					</div>
@@ -40,16 +50,6 @@ export default function DonatePage() {
 							Ko-fi.com/Metalloriff
 						</a>
 					</div>
-				</Window>
-
-				<Window title="How your donations help ♥">
-					<p>
-						I strive to make as many projects as possible free of charge. Receiving donations helps me upkeep any database/server costs for projects that require it. Along with the yearly charge for domains.
-					</p>
-
-					<p>
-						My aspiration in life is to earn enough income via donations to keep making these free projects. Donations from those who can afford it help me to keep my projects free for those who can't.
-					</p>
 				</Window>
 			</div>
 		</div>

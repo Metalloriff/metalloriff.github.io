@@ -96,7 +96,7 @@ export default function ContactPage() {
 
 					<LinkWrapper
 						className="MainButton FlexCenter"
-						href={`mailto:metalloriff+kinzoku@gmail.com?subject=${encodeURIComponent(`${contactReason}: `)}${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}
+						href={`mailto:mail@kinzoku.one?subject=${encodeURIComponent(`${contactReason}: `)}${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}
 					>
 						<Send /> Send
 					</LinkWrapper>

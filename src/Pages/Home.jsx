@@ -10,20 +10,11 @@ import LinkWrapper from "../Components/LinkWrapper";
 import Toasts from "../Components/Toasts";
 import Tooltip from "../Components/Tooltip";
 import "./Home.scss";
+import data from "../projects.json";
 
 export const age = Math.floor((Date.now() - new Date("05/20/2001")) / 3.154e+10);
 
 function Projects() {
-	const data = usePromise(
-		() => fetch(
-			"https://raw.githubusercontent.com/Metalloriff/metalloriff.github.io/master/projects.json",
-			{ cache: "no-cache" }
-		).then(r => r.json()).catch(err => {
-			console.error(err);
-			Toasts.showToast("There was an error fetching projects!", "Failure");
-		})
-	);
-
 	const [category, setCategory] = useState("featured");
 
 	return data ? (
@@ -95,6 +86,22 @@ function Projects() {
 					</Window>
 				</div>
 			)}
+
+			<div className="FlexCenter ThatsNotAllFolks">
+				<Window title="How your donations help ♥">
+					<p>
+						I strive to make as many projects as possible free of charge. Receiving donations helps me upkeep any database/server costs for projects that require it. Along with the yearly charge for domains.
+					</p>
+
+					<p>
+						My aspiration in life is to earn enough income via donations to keep making these free projects. Donations from those who can afford it help me to keep my projects free for those who can't.
+					</p>
+
+					<p>
+						You can donate <a href="/donate">here</a>. Anything and everything helps!
+					</p>
+				</Window>
+			</div>
 		</div>
 	) : <InlineLoading />;
 }
@@ -273,7 +280,6 @@ function HeadIntro() {
 			<h1><b style={{ marginLeft: 40 }}><a href="https://github.com/metalloriff">Programming</a></b>,   </h1>
 			<h1><b style={{ marginLeft: 40 }}><a href="https://www.printables.com/@Metalloriff_1158555">3D Printing</a></b>,   </h1>
 			<h1><b style={{ marginLeft: 40 }}><span>Digital Art</span></b>,   </h1>
-			<h1><b style={{ marginLeft: 40 }}><span>AI Art</span></b>,   </h1>
 			<h1><b style={{ marginLeft: 40 }}><a href="https://soundcloud.com/metalloriff">Music Production</a></b></h1>
 			<h1><b>]</b>;</h1>
 
