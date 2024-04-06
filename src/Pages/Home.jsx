@@ -10,7 +10,7 @@ import LinkWrapper from "../Components/LinkWrapper";
 import Toasts from "../Components/Toasts";
 import Tooltip from "../Components/Tooltip";
 import "./Home.scss";
-import data from "../projects.json";
+import data from "../../projects.json";
 
 export const age = Math.floor((Date.now() - new Date("05/20/2001")) / 3.154e+10);
 
