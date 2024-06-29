@@ -36,8 +36,8 @@
 		},
 		{
 			"name": "Godot Soundboard",
-			"type": "Software (Windows)",
-			"description": "A simple soundboard, TTS, and audio clipping/replay software built with Godot and Python, for Windows.",
+			"type": "Software (Windows, Linux)",
+			"description": "A cross-platform soundboard, TTS, and clipping software built with Godot and Python.",
 			"buttons": [
 				{
 					"title": "Download App",
